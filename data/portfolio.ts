@@ -20,7 +20,7 @@ export const portfolioData = {
     stats: [
       { label: "YEARS OF EXPERIENCE", value: "+1.5" },
       { label: "PROJECTS COMPLETED", value: "+10" },
-      { label: "INDUSTRIAL PROJECTS CONTRIBUTED", value: "4" },
+      { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4" },
       { label: "CERTIFICATIONS", value: "4+" },
     ],
   },
