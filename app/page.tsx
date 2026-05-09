@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "@/components/layout/Sidebar";
 import Navbar from "@/components/layout/Navbar";
 import About from "@/components/sections/About";
-import Resume from "@/components/sections/Resume";
-import Portfolio from "@/components/sections/Portfolio";
+import Career from "@/components/sections/Career";
+import CreativeShowcase from "@/components/sections/CreativeShowcase";
 import Contact from "@/components/sections/Contact";
-import Achievements from "@/components/sections/Achievements";
+import Achievement from "@/components/sections/Achievement";
 
-type Section = "About" | "Resume" | "Portfolio" | "Achievements" | "Contact";
+type Section = "About" | "Career" | "CreativeShowcase" | "Achievement" | "Contact";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<Section>("About");
@@ -18,9 +18,9 @@ export default function Home() {
   const renderSection = () => {
     switch (activeSection) {
       case "About": return <About />;
-      case "Resume": return <Resume />;
-      case "Portfolio": return <Portfolio />;
-      case "Achievements": return <Achievements />;
+      case "Career": return <Career />;
+      case "CreativeShowcase": return <CreativeShowcase />;
+      case "Achievement": return <Achievement />;
       case "Contact": return <Contact />;
       default: return <About />;
     }

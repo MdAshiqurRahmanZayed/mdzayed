@@ -24,7 +24,7 @@ export default function Sidebar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="absolute left-0 top-0 p-2 rounded-tl-2xl rounded-br-2xl bg-card text-sky-blue-crayola border border-border hover:bg-border transition-colors z-20"
+            className="absolute left-0 top-0 p-2 rounded-tl-2xl rounded-br-2xl bg-card text-[#C4704B] dark:text-[#F08060] border border-border hover:bg-border transition-colors z-20"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
@@ -61,9 +61,9 @@ export default function Sidebar() {
             href={profile.locationLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:text-sky-blue-crayola transition-colors"
+            className="flex items-center gap-3 hover:text-[#C4704B] dark:hover:text-[#F08060] transition-colors"
           >
-            <div className="p-2.5 rounded-xl bg-card border border-border text-sky-blue-crayola">
+<div className="p-2.5 rounded-xl bg-card border border-border text-[#C4704B] dark:text-[#F08060]">
               <MapPin size={16} />
             </div>
             <div className="flex-1 overflow-hidden">
@@ -93,7 +93,7 @@ export default function Sidebar() {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl bg-sky-blue-crayola/10 text-sky-blue-crayola hover:bg-sky-blue-crayola hover:text-black transition-all text-sm font-medium"
+          className="flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl transition-all text-sm font-medium text-[#C4704B] bg-[#C4704B]/10 hover:bg-[#C4704B] hover:text-white dark:text-[#F08060] dark:bg-[#F08060]/10 dark:hover:bg-[#F08060]"
         >
           <FileText size={16} />
           Download Resume
@@ -109,7 +109,7 @@ function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, v
       whileHover={{ x: 5 }}
       className="flex items-center gap-3"
     >
-      <div className="p-2.5 rounded-xl bg-card border border-border text-sky-blue-crayola">
+      <div className="p-2.5 rounded-xl bg-card border border-border text-[#C4704B] dark:text-[#F08060]">
         <Icon size={16} />
       </div>
       <div className="flex-1 overflow-hidden">
@@ -127,7 +127,7 @@ function SocialIcon({ href, icon: Icon }: { href: string, icon: any }) {
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.2, y: -3 }}
-      className="p-2 rounded-lg bg-card border border-border text-foreground/70 hover:text-sky-blue-crayola hover:border-sky-blue-crayola transition-colors"
+      className="p-2 rounded-lg bg-card border border-border text-foreground/70 hover:text-[#C4704B] dark:hover:text-[#F08060] hover:border-[#C4704B] dark:hover:border-[#F08060] transition-colors"
     >
       <Icon size={16} />
     </motion.a>

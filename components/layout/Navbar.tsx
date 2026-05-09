@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { UserCircle, FileText, Briefcase, Trophy, Mail } from "lucide-react";
 
-type Section = "About" | "Resume" | "Portfolio" | "Achievements" | "Contact";
+type Section = "About" | "Career" | "CreativeShowcase" | "Achievement" | "Contact";
 
 type NavbarProps = {
   activeSection: Section;
@@ -14,9 +14,9 @@ type NavbarProps = {
 
 const navItems: { section: Section; icon: React.ReactNode; label: string }[] = [
   { section: "About", icon: <UserCircle size={20} />, label: "About" },
-  { section: "Resume", icon: <FileText size={20} />, label: "Career" },
-  { section: "Portfolio", icon: <Briefcase size={20} />, label: "Creative" },
-  { section: "Achievements", icon: <Trophy size={20} />, label: "Achievement" },
+  { section: "Career", icon: <FileText size={20} />, label: "Career" },
+  { section: "CreativeShowcase", icon: <Briefcase size={20} />, label: "Creative" },
+  { section: "Achievement", icon: <Trophy size={20} />, label: "Achievement" },
   { section: "Contact", icon: <Mail size={20} />, label: "Contact" },
 ];
 
@@ -32,14 +32,20 @@ export default function Navbar({ activeSection, setActiveSection, isMobileBottom
                 onClick={() => setActiveSection(section)}
                 className={cn(
                   "flex flex-col items-center justify-center gap-1 min-h-[48px] min-w-[44px] px-3 py-2 rounded-lg transition-all",
-                  activeSection === section
-                    ? "text-sky-blue-crayola"
-                    : "text-foreground/50 hover:text-foreground/70"
+                  activeSection === section ? "bg-[var(--highlight)]/20" : ""
                 )}
+                style={{
+                  color: activeSection === section ? 'var(--highlight)' : undefined
+                }}
                 aria-label={section}
               >
                 {icon}
-                <span className="text-[10px] font-medium">{label}</span>
+                <span 
+                  className="text-[10px] font-medium"
+                  style={{ color: activeSection === section ? 'var(--highlight)' : 'rgb(var(--foreground) / 0.5)' }}
+                >
+                  {label}
+                </span>
               </motion.button>
             </li>
           ))}
@@ -59,10 +65,11 @@ export default function Navbar({ activeSection, setActiveSection, isMobileBottom
               onClick={() => setActiveSection(section)}
               className={cn(
                 "transition-all p-2 rounded-lg",
-                activeSection === section
-                  ? "text-sky-blue-crayola bg-sky-blue-crayola/10"
-                  : "text-foreground/70 hover:text-foreground/90"
+                activeSection === section ? "bg-[var(--highlight)]/10" : ""
               )}
+              style={{
+                color: activeSection === section ? 'var(--highlight)' : undefined
+              }}
               aria-label={section}
             >
               {icon}
