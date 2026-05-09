@@ -9,6 +9,11 @@ const poppins = Poppins({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata = {
   title: "Md. Ashiqur Rahman Zayed - Portfolio",
   description: "Portfolio of Md. Ashiqur Rahman Zayed, Software Engineer (Backend) at Strativ AB",

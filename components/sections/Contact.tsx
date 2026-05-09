@@ -116,14 +116,14 @@ export default function Contact() {
               type="text"
               name="name"
               placeholder="Full Name"
-              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
+              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
               required
             />
             <input
               type="email"
               name="email"
               placeholder="Email Address"
-              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
+              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
               required
             />
           </div>
@@ -131,7 +131,7 @@ export default function Contact() {
             name="message"
             placeholder="Your Message"
             rows={5}
-            className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors resize-none placeholder:text-[var(--foreground)]/40"
+            className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors resize-none placeholder:text-[var(--foreground)]/40"
             required
           ></textarea>
           <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ""} />

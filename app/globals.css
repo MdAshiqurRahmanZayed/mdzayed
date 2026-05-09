@@ -75,3 +75,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+}
