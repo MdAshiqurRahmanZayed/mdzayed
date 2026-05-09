@@ -93,7 +93,7 @@ export default function Sidebar() {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl transition-all text-sm font-medium text-[#C4704B] bg-[#C4704B]/10 hover:bg-[#C4704B] hover:text-white dark:text-[#F08060] dark:bg-[#F08060]/10 dark:hover:bg-[#F08060]"
+          className="hidden flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl transition-all text-sm font-medium text-[#C4704B] bg-[#C4704B]/10 hover:bg-[#C4704B] hover:text-white dark:text-[#F08060] dark:bg-[#F08060]/10 dark:hover:bg-[#F08060]"
         >
           <FileText size={16} />
           Download Resume
