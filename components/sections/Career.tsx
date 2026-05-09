@@ -27,7 +27,7 @@ export default function Resume() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           Career Snapshot
         </h2>
       </motion.header>
@@ -35,7 +35,7 @@ export default function Resume() {
       {/* EXPERIENCE */}
       <motion.section variants={item}>
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-xl bg-sky-blue-crayola/10 text-sky-blue-crayola">
+          <div className="p-2 rounded-xl bg-highlight/10 text-highlight">
             <Briefcase size={18} />
           </div>
           <h3 className="text-lg font-semibold">Experience</h3>
@@ -46,10 +46,10 @@ export default function Resume() {
             <motion.div
               key={idx}
               variants={item}
-              className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-sky-blue-crayola before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
+              className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-highlight before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
             >
               <h4 className="font-semibold text-base">{exp.company}</h4>
-              <p className="text-sky-blue-crayola text-sm mb-1">{exp.period}</p>
+              <p className="text-highlight text-sm mb-1">{exp.period}</p>
               <p className="text-sm font-medium mb-2">{exp.role}</p>
               <div className="text-foreground/60 text-sm space-y-1">
                 {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((point, i) => (
@@ -64,7 +64,7 @@ export default function Resume() {
       {/* EDUCATION */}
       <motion.section variants={item}>
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 rounded-xl bg-sky-blue-crayola/10 text-sky-blue-crayola">
+          <div className="p-2 rounded-xl bg-highlight/10 text-highlight">
             <School size={18} />
           </div>
           <h3 className="text-lg font-semibold">Education</h3>
@@ -75,7 +75,7 @@ export default function Resume() {
             <motion.div
               key={idx}
               variants={item}
-              className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-sky-blue-crayola before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
+              className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-highlight before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
             >
               <h4 className="font-semibold text-base">{edu.institution}</h4>
               <p className="text-sm font-medium mb-2">{edu.degree}</p>
@@ -96,7 +96,7 @@ export default function Resume() {
                 {skillGroup.items.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-foreground/5 text-foreground/80 px-3 py-1.5 rounded-lg text-sm border border-border hover:border-sky-blue-crayola hover:text-sky-blue-crayola transition-colors cursor-default"
+                    className="bg-foreground/5 text-foreground/80 px-3 py-1.5 rounded-lg text-sm border border-border hover:border-highlight hover:text-highlight transition-colors cursor-default"
                   >
                     {skill}
                   </span>

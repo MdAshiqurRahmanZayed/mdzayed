@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Phone, Mail, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, Phone, Mail } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { showToast } from "@/components/layout/Toast";
 
 const container = {
   hidden: { opacity: 0 },
@@ -20,12 +21,10 @@ const item = {
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<"success" | "error" | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus(null);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -39,13 +38,13 @@ export default function Contact() {
       const data = await response.json();
 
       if (data.success) {
-        setStatus("success");
+        showToast("success", "Message sent successfully!");
         form.reset();
       } else {
-        setStatus("error");
+        showToast("error", "Failed to send message. Please try again.");
       }
     } catch {
-      setStatus("error");
+      showToast("error", "Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -60,7 +59,7 @@ export default function Contact() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           Let's Connect
         </h2>
       </motion.header>
@@ -83,23 +82,23 @@ export default function Contact() {
         <h3 className="text-lg font-semibold mb-4">Contact Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--border)]">
-            <div className="p-2.5 rounded-xl bg-[var(--color-sky-blue-crayola)]/10 text-[var(--color-sky-blue-crayola)]">
+            <div className="p-2.5 rounded-xl bg-[var(--color-highlight)]/10 text-[var(--color-highlight)]">
               <Phone size={18} />
             </div>
             <div>
               <p className="text-xs text-[var(--foreground)]/50 uppercase tracking-wider mb-0.5">Mobile</p>
-              <a href={`tel:${portfolioData.profile.phone}`} className="text-sm font-medium hover:text-[var(--color-sky-blue-crayola)] transition-colors">
+              <a href={`tel:${portfolioData.profile.phone}`} className="text-sm font-medium hover:text-[var(--color-highlight)] transition-colors">
                 {portfolioData.profile.phone}
               </a>
             </div>
           </div>
           <div className="flex items-center gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--border)]">
-            <div className="p-2.5 rounded-xl bg-[var(--color-sky-blue-crayola)]/10 text-[var(--color-sky-blue-crayola)]">
+            <div className="p-2.5 rounded-xl bg-[var(--color-highlight)]/10 text-[var(--color-highlight)]">
               <Mail size={18} />
             </div>
             <div>
               <p className="text-xs text-[var(--foreground)]/50 uppercase tracking-wider mb-0.5">Email</p>
-              <a href={`mailto:${portfolioData.profile.email}`} className="text-sm font-medium hover:text-[var(--color-sky-blue-crayola)] transition-colors">
+              <a href={`mailto:${portfolioData.profile.email}`} className="text-sm font-medium hover:text-[var(--color-highlight)] transition-colors">
                 {portfolioData.profile.email}
               </a>
             </div>
@@ -116,14 +115,14 @@ export default function Contact() {
               type="text"
               name="name"
               placeholder="Full Name"
-              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
+              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-highlight)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
               required
             />
             <input
               type="email"
               name="email"
               placeholder="Email Address"
-              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
+              className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-highlight)] outline-none transition-colors placeholder:text-[var(--foreground)]/40"
               required
             />
           </div>
@@ -131,7 +130,7 @@ export default function Contact() {
             name="message"
             placeholder="Your Message"
             rows={5}
-            className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-sky-blue-crayola)] outline-none transition-colors resize-none placeholder:text-[var(--foreground)]/40"
+            className="w-full bg-[var(--foreground)]/5 border border-[var(--border)] rounded-xl px-4 py-3 text-base md:text-sm focus:border-[var(--color-highlight)] outline-none transition-colors resize-none placeholder:text-[var(--foreground)]/40"
             required
           ></textarea>
           <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ""} />
@@ -142,7 +141,7 @@ export default function Contact() {
               whileTap={{ scale: 0.95 }}
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-sky-blue-crayola)] to-[var(--color-sky-blue-crayola)] text-black px-6 py-3 rounded-xl font-semibold text-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-highlight)] to-[var(--color-highlight)] text-black px-6 py-3 rounded-xl font-semibold text-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>Sending...</>
@@ -155,26 +154,6 @@ export default function Contact() {
             </motion.button>
           </div>
         </form>
-        {status === "success" && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 p-4 mt-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-500"
-          >
-            <CheckCircle size={18} />
-            <p className="text-sm font-medium">Message sent successfully!</p>
-          </motion.div>
-        )}
-        {status === "error" && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-2 p-4 mt-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500"
-          >
-            <AlertCircle size={18} />
-            <p className="text-sm font-medium">Failed to send message. Please try again.</p>
-          </motion.div>
-        )}
       </motion.section>
     </motion.div>
   );

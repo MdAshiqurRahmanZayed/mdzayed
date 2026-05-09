@@ -41,7 +41,7 @@ export default function Gallery() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           Pixels & Passion
         </h2>
       </motion.header>
@@ -78,14 +78,14 @@ export default function Gallery() {
           >
             <button
               onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 p-3 text-white/70 hover:text-[var(--color-sky-blue-crayola)] transition-colors bg-white/10 rounded-full"
+              className="absolute top-4 right-4 p-3 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
             >
               <X size={24} />
             </button>
 
             <button
               onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 p-4 text-white/70 hover:text-[var(--color-sky-blue-crayola)] transition-colors bg-white/10 rounded-full"
+              className="absolute left-4 p-4 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
             >
               <ChevronLeft size={28} />
             </button>
@@ -103,7 +103,7 @@ export default function Gallery() {
 
             <button
               onClick={(e) => { e.stopPropagation(); next(); }}
-              className="absolute right-4 p-4 text-white/70 hover:text-[var(--color-sky-blue-crayola)] transition-colors bg-white/10 rounded-full"
+              className="absolute right-4 p-4 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
             >
               <ChevronRight size={28} />
             </button>

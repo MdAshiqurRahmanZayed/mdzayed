@@ -27,7 +27,7 @@ export default function Achievements() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           Achievements & Certifications
         </h2>
       </motion.header>
@@ -36,13 +36,13 @@ export default function Achievements() {
       {portfolioData.achievements && portfolioData.achievements.length > 0 && (
         <motion.section variants={item}>
           <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
-            <Trophy size={20} className="text-sky-blue-crayola" />
+            <Trophy size={20} className="text-highlight" />
             Achievements
           </h3>
           <div className="space-y-3">
             {portfolioData.achievements.map((achievement, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-card border border-border">
-                <h4 className="font-semibold text-sm text-sky-blue-crayola">{achievement.title}</h4>
+                <h4 className="font-semibold text-sm text-highlight">{achievement.title}</h4>
                 <p className="text-sm text-foreground/60 mt-1">{achievement.description}</p>
               </div>
             ))}
@@ -54,7 +54,7 @@ export default function Achievements() {
       {portfolioData.certifications && portfolioData.certifications.length > 0 && (
         <motion.section variants={item}>
           <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
-            <GraduationCap size={20} className="text-sky-blue-crayola" />
+            <GraduationCap size={20} className="text-highlight" />
             Certifications
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -64,7 +64,7 @@ export default function Achievements() {
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-card border border-border hover:border-sky-blue-crayola hover:text-sky-blue-crayola transition-colors text-sm"
+                className="p-3 rounded-xl bg-card border border-border hover:border-highlight hover:text-highlight transition-colors text-sm"
               >
                 {cert.title}
               </a>

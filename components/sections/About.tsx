@@ -27,7 +27,7 @@ export default function About() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           About Me
         </h2>
       </motion.header>
@@ -36,16 +36,16 @@ export default function About() {
       <motion.section variants={item} className="space-y-4 text-foreground/80 leading-relaxed text-sm md:text-base">
         <p dangerouslySetInnerHTML={{
           __html: portfolioData.about.bio
-            .replace(/{name}/g, `<span class="text-sky-blue-crayola font-semibold">${portfolioData.profile.name}</span>`)
-            .replace(/{role}/g, `<span class="text-sky-blue-crayola font-semibold">${portfolioData.profile.role}</span>`)
-            .replace(/{company}/g, `<span class="text-sky-blue-crayola font-semibold">${portfolioData.profile.company}</span>`)
+            .replace(/{name}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.name}</span>`)
+            .replace(/{role}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.role}</span>`)
+            .replace(/{company}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.company}</span>`)
         }} />
       </motion.section>
 
       {/* HIGHLIGHTS */}
       <motion.section variants={item}>
         <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
-          <Star size={20} className="text-sky-blue-crayola" />
+          <Star size={20} className="text-highlight" />
           Highlights & Successes
         </h3>
         <div className="flex flex-wrap gap-4 md:gap-6">
@@ -56,7 +56,7 @@ export default function About() {
               whileHover={{ scale: 1.05 }}
               className="flex flex-col items-center text-center min-w-[120px] p-4 md:p-6 rounded-xl bg-card border border-border"
             >
-              <span className="text-2xl md:text-3xl font-bold text-sky-blue-crayola mb-2">
+              <span className="text-2xl md:text-3xl font-bold text-highlight mb-2">
                 {stat.value}
               </span>
               <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
@@ -71,10 +71,10 @@ export default function About() {
       <motion.section variants={item}>
         <div className="mb-2">
           <h3 className="text-lg font-semibold inline-flex items-center gap-2">
-            <Award size={20} className="text-sky-blue-crayola" />
+            <Award size={20} className="text-highlight" />
             Projects
           </h3>
-          <p className="text-sm text-foreground/50 mt-1">A glimpse into my professional journey.</p>
+          <p className="text-sm text-foreground/50 mt-1">A glimpse into my personal projects.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {portfolioData.projects.slice(0, 2).map((project, idx) => (
@@ -95,7 +95,7 @@ export default function About() {
                 />
               </div>
               <div className="p-4">
-                <span className="text-xs text-sky-blue-crayola font-medium">{project.category}</span>
+                <span className="text-xs text-highlight font-medium">{project.category}</span>
                 <h4 className="font-semibold text-base mt-1">{project.title}</h4>
                 <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{project.description}</p>
               </div>

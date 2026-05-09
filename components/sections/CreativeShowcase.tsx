@@ -26,7 +26,7 @@ export default function Portfolio() {
     >
       {/* HEADER */}
       <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-sky-blue-crayola after:to-sky-blue-crayola after:rounded-full">
+        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
           Creative Showcase
         </h2>
       </motion.header>
@@ -50,13 +50,13 @@ export default function Portfolio() {
                 className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                <span className="text-white text-sm font-medium px-4 py-2 bg-[var(--color-sky-blue-crayola)] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-white text-sm font-medium px-4 py-2 bg-[var(--color-highlight)] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                   View Project
                 </span>
               </div>
             </div>
             <div className="p-4">
-              <span className="text-xs text-[var(--color-sky-blue-crayola)] font-medium">{project.link.replace("https://", "")}</span>
+              <span className="text-xs text-[var(--color-highlight)] font-medium">{project.link.replace("https://", "")}</span>
               <h3 className="font-semibold text-base mt-1">{project.title}</h3>
               <p className="text-sm text-[var(--foreground)]/60 mt-1 line-clamp-2">{project.description}</p>
             </div>
