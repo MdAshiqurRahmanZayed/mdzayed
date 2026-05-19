@@ -58,7 +58,8 @@ export const portfolioData = {
     { name: "Backend", items: ["Django", "Django REST Framework"] },
     { name: "Frontend", items: ["React", "HTMX", "HTML", "CSS"] },
     { name: "AI/ML", items: ["LLMs", "LangChain", "Machine Learning"] },
-    { name: "Tools", items: ["Docker", "PostgreSQL", "Git"] },
+    { name: "DevOps", items: ["Docker", "CI/CD", "Grafana", "Loki", "Prometheus", "Kubernetes"] },
+    { name: "Tools", items: ["PostgreSQL", "Git"] },
   ],
   projects: [
     {
@@ -98,6 +99,7 @@ export const portfolioData = {
     }
   ],
   certifications: [
+    { title: "Mastering DevOps: From Fundamentals to Advanced Practices", link: "https://ostad.app/share/certificate/c43390-md.-ashiqur-rahman-zayed" },
     { title: "Python for Everybody", link: "https://coursera.org/share/cc306ea79742189ddfcdf273b138bb2c" },
     { title: "Full Stack Web Development With Python & JavaScript", link: "https://res.cloudinary.com/bohubrihi/image/upload/v1716313364/production/664cdd1025b619c01af50d75.pdf" },
     { title: "Using Python to Interact with the Operating System", link: "https://coursera.org/share/f1c90c4e9eb5d653106f31bb78c62560" },
