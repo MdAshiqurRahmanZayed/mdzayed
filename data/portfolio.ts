@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Md. Ashiqur Rahman Zayed",
     role: "Software Engineer",
     company: "Strativ AB",
-    avatar: "https://media.licdn.com/dms/image/v2/D5603AQEXdyTp5-TVTg/profile-displayphoto-crop_800_800/B56ZyoU5s8KMAI-/0/1772350586575?e=1782345600&v=beta&t=zaW1NMvzBoqWzdouy2UoS_WwxEHwVLIdhS0UaijZC7Y",
+    avatar: "https://raw.githubusercontent.com/MdAshiqurRahmanZayed/mdzayed/refs/heads/main/public/md-zayed-profile.png",
     email: "mdarzayed01@gmail.com",
     phone: "+88 01558920843",
     location: "Dhaka, Bangladesh",
