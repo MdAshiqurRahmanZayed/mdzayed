@@ -11,8 +11,7 @@ export const portfolioData = {
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233013.5361534093!2d90.34772926521753!3d23.87107764999819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c42a59476447%3A0x924a6ea3d6644b69!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sbd!4v1750000000000!5m2!1sen!2sbd",
     socials: [
       { href: "https://www.linkedin.com/in/md-ashiqur-rahman-zayed", label: "LinkedIn" },
-      { href: "https://github.com/MdAshiqurRahmanZayed/", label: "GitHub" },
-      { href: "https://www.facebook.com/mdashiqurrahman.zayed", label: "Facebook" },
+      { href: "https://github.com/MdAshiqurRahmanZayed/", label: "GitHub" }
     ],
   },
   about: {
