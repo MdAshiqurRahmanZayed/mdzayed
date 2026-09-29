@@ -26,13 +26,14 @@ export const portfolioData = {
   experience: [
     {
       company: "Strativ AB",
-      role: "Software Engineer (Backend)",
+      role: "Associate Software Engineer (Backend) - L1",
       period: "September 2024 - Present",
       description: [
-        "Developed a meeting management module integrating Google Calendar, custom business logic, WebSockets, and a Chrome extension to enable seamless real-time communication",
-        "Implemented an automated report scheduling system that generated and delivered reports on schedule, reducing manual effort and improving efficiency",
-        "Contributed to Strativ's ERP system (prognosis, billing modules etc), Customer Portal, and KPI Dashboard, delivering end-to-end features across internal operations",
-        "Experienced in client-based projects, delivering hands-on support and solutions across the full project lifecycle.",
+        "Built a meeting management module with Google Calendar OAuth sync, recurring events, and automated agenda and protocol emails. Also built a real-time Chrome extension for live meeting notes on Django Channels WebSockets.",
+        "Designed an automated report system that sends reports on schedule through background job queues, with magic-link access and templated emails. This removed manual weekly reporting for the client.",
+        "Built a recruitment and onboarding workflow in Strativ's Odoo ERP. It includes secure token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic creation of the employee record at hire. Delivered Odoo manufacturing features for another client (work orders, delivery-note PDFs, test suites).",
+        "Set up the backend of a new Django-based ERP portal: JWT and Google OAuth login, Docker, LocalStack S3 storage, Sentry error tracking, and Swagger API docs. Developed backend APIs for the revenue and team KPI dashboards, billing, and the customer portal, covering occupancy, billable versus non-billable hours, currency conversion, and Kanban/backlog views.",
+        "Integrated Swedish BankID QR-code login into a client's Django SaaS product.",
       ],
     },
     {
@@ -40,8 +41,8 @@ export const portfolioData = {
       role: "Intern",
       period: "June 2024 - August 2024",
       description: [
-        "Developed backend modules using Django, gaining hands-on experience in REST API design and database integration.",
-        "Gained foundational understanding of LLMs",
+        "Built REST APIs for the Actions & Prioritization module of a Django investment management platform: task model redesign, Kanban grid view and search, and create and remove prioritization endpoints.",
+        "Implemented role-based visibility rules for internal, portfolio-company, and private tasks. Wrote a data-migration script to reclassify existing records.",
       ],
     },
   ],
