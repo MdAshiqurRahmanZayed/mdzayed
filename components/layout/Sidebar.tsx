@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Mail, MapPin, Smartphone, Linkedin, Github, Twitter, Instagram, Facebook, Moon, Sun, FileText } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 
@@ -11,6 +12,8 @@ export default function Sidebar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { profile } = portfolioData;
+  const pathname = usePathname();
+  const isRoot = pathname === "/";
 
   useEffect(() => {
     setMounted(true);
@@ -31,7 +34,7 @@ export default function Sidebar() {
         )}
 
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={isRoot ? { scale: 0.9, opacity: 0 } : false}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="mb-4 p-1.5 bg-border rounded-3xl"
