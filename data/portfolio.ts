@@ -1,7 +1,7 @@
 export const portfolioData = {
   profile: {
     name: "Md. Ashiqur Rahman Zayed",
-    role: "Associate Software Engineer",
+    role: "Software Engineer",
     company: "Scandinavian Fullstack BD Limited",
     avatar: "https://raw.githubusercontent.com/MdAshiqurRahmanZayed/mdzayed/refs/heads/main/public/md-zayed-profile.png",
     email: "mdarzayed01@gmail.com",
@@ -17,7 +17,7 @@ export const portfolioData = {
   about: {
     bio: "I am {name}, a {role} at {company} specializing in backend development and LLM-based solutions. With a strong foundation in building scalable, production-ready systems, I bring a practical approach to integrating AI and large language models into real-world business workflows. Driven by a passion for intelligent software, I thrive at the intersection of backend engineering and applied AI — crafting solutions that are not only technically sound but also impactful at scale.",
     stats: [
-      { label: "YEARS OF EXPERIENCE", value: "+1.5" },
+      { label: "YEARS OF EXPERIENCE", value: "2+" },
       { label: "PROJECTS COMPLETED", value: "+10" },
       { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4" },
       { label: "CERTIFICATIONS", value: "4+" },
