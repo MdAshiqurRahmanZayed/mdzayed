@@ -1,8 +1,8 @@
 export const portfolioData = {
   profile: {
     name: "Md. Ashiqur Rahman Zayed",
-    role: "Software Engineer",
-    company: "Strativ AB",
+    role: "Associate Software Engineer",
+    company: "Scandinavian Fullstack BD Limited",
     avatar: "https://raw.githubusercontent.com/MdAshiqurRahmanZayed/mdzayed/refs/heads/main/public/md-zayed-profile.png",
     email: "mdarzayed01@gmail.com",
     phone: "+88 01558920843",
@@ -25,24 +25,30 @@ export const portfolioData = {
   },
   experience: [
     {
-      company: "Strativ AB",
-      role: "Associate Software Engineer (Backend) - L1",
-      period: "September 2024 - Present",
+      company: "Scandinavian Fullstack BD Limited",
+      role: "Associate Software Engineer - L1",
+      period: "December 2025 - Present",
       description: [
-        "Built a meeting management module with Google Calendar OAuth sync, recurring events, and automated agenda and protocol emails. Also built a real-time Chrome extension for live meeting notes on Django Channels WebSockets.",
-        "Designed an automated report system that sends reports on schedule through background job queues, with magic-link access and templated emails. This removed manual weekly reporting for the client.",
-        "Built a recruitment and onboarding workflow in Strativ's Odoo ERP. It includes secure token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic creation of the employee record at hire. Delivered Odoo manufacturing features for another client (work orders, delivery-note PDFs, test suites).",
-        "Set up the backend of a new Django-based ERP portal: JWT and Google OAuth login, Docker, LocalStack S3 storage, Sentry error tracking, and Swagger API docs. Developed backend APIs for the revenue and team KPI dashboards, billing, and the customer portal, covering occupancy, billable versus non-billable hours, currency conversion, and Kanban/backlog views.",
-        "Integrated Swedish BankID QR-code login into a client's Django SaaS product.",
+        "Set up the backend of a new Django ERP portal (JWT and Google OAuth, Docker, LocalStack S3, Sentry, Swagger) and developed APIs for revenue and KPI dashboards, billing, and the customer portal.",
+        "Integrated Swedish BankID QR-code login into a client's Django SaaS product, and delivered Odoo manufacturing features (work orders, delivery-note PDFs, test suites) for another client.",
+        "Implemented a recruitment and onboarding workflow in Strativ's Odoo ERP: token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic employee creation at hire.",
       ],
     },
     {
-      company: "Strativ AB",
+      company: "Strativ BD Limited",
+      role: "Software Engineer (Backend) - J1",
+      period: "September 2024 - November 2025",
+      description: [
+        "Built a meeting management module with Google Calendar OAuth sync, recurring events, and automated agenda and protocol emails, plus a real-time Chrome extension for live notes on Django Channels WebSockets.",
+        "Designed an automated report system that delivers scheduled reports through background job queues, with magic-link access and templated emails, eliminating the client's manual weekly reporting.",
+      ],
+    },
+    {
+      company: "Strativ BD Limited",
       role: "Intern",
       period: "June 2024 - August 2024",
       description: [
-        "Built REST APIs for the Actions & Prioritization module of a Django investment management platform: task model redesign, Kanban grid view and search, and create and remove prioritization endpoints.",
-        "Implemented role-based visibility rules for internal, portfolio-company, and private tasks. Wrote a data-migration script to reclassify existing records.",
+        "Developed REST APIs for the Actions & Prioritization module of a Django investment platform, including a task model redesign, Kanban views, and role-based visibility rules with a data-migration script.",
       ],
     },
   ],
