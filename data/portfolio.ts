@@ -18,9 +18,9 @@ export const portfolioData = {
     bio: "I am {name}, a {role} at {company} specializing in backend development and LLM-based solutions. With a strong foundation in building scalable, production-ready systems, I bring a practical approach to integrating AI and large language models into real-world business workflows. Driven by a passion for intelligent software, I thrive at the intersection of backend engineering and applied AI — crafting solutions that are not only technically sound but also impactful at scale.",
     stats: [
       { label: "YEARS OF EXPERIENCE", value: "2+" },
-      { label: "PROJECTS COMPLETED", value: "+10" },
+      { label: "PROJECTS COMPLETED", value: "10+" },
       { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4" },
-      { label: "CERTIFICATIONS", value: "4+" },
+      { label: "CERTIFICATIONS", value: "7+" },
     ],
   },
   experience: [
@@ -66,6 +66,32 @@ export const portfolioData = {
     { name: "AI/ML", items: ["LLMs", "LangChain", "Machine Learning"] },
     { name: "DevOps", items: ["Docker", "CI/CD", "Grafana", "Loki", "Prometheus", "Kubernetes"] },
     { name: "Tools", items: ["PostgreSQL", "Git"] },
+  ],
+  industrialProjects: [
+    {
+      title: "ERP Portal Backend",
+      company: "Scandinavian Fullstack BD Limited",
+      description: "Set up the backend of a new Django ERP portal with JWT and Google OAuth, Docker, LocalStack S3, Sentry and Swagger, and built APIs for revenue and KPI dashboards, billing, and the customer portal.",
+      tech: ["Django", "JWT", "Docker", "Sentry"],
+    },
+    {
+      title: "Recruitment & Onboarding Workflow",
+      company: "Strativ BD Limited",
+      description: "Implemented token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic employee creation at hire in Strativ's Odoo ERP.",
+      tech: ["Odoo", "Python", "PostgreSQL"],
+    },
+    {
+      title: "Meeting Management Module",
+      company: "Strativ BD Limited",
+      description: "Built Google Calendar OAuth sync, recurring events, automated agenda and protocol emails, and a real-time Chrome extension for live notes over Django Channels WebSockets.",
+      tech: ["Django Channels", "WebSockets", "Google OAuth"],
+    },
+    {
+      title: "Automated Report System",
+      company: "Strativ BD Limited",
+      description: "Designed scheduled report delivery through background job queues with magic-link access and templated emails, eliminating the client's manual weekly reporting.",
+      tech: ["Django", "Celery", "Redis"],
+    },
   ],
   projects: [
     {
