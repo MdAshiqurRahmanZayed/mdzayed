@@ -84,8 +84,7 @@ export default function About() {
               whileHover={{ y: -4 }}
               className="rounded-xl border border-border bg-card p-4 shadow-lg"
             >
-              <span className="text-xs text-highlight font-medium">{work.company}</span>
-              <h4 className="font-semibold text-base mt-1">{work.title}</h4>
+              <h4 className="font-semibold text-base">{work.title}</h4>
               <p className="text-sm text-foreground/60 mt-1">{work.description}</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {work.tech.map((t) => (

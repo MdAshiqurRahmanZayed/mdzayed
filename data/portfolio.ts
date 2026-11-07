@@ -70,25 +70,21 @@ export const portfolioData = {
   industrialProjects: [
     {
       title: "ERP Portal Backend",
-      company: "Scandinavian Fullstack BD Limited",
       description: "Set up the backend of a new Django ERP portal with JWT and Google OAuth, Docker, LocalStack S3, Sentry and Swagger, and built APIs for revenue and KPI dashboards, billing, and the customer portal.",
       tech: ["Django", "JWT", "Docker", "Sentry"],
     },
     {
       title: "Recruitment & Onboarding Workflow",
-      company: "Strativ BD Limited",
-      description: "Implemented token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic employee creation at hire in Strativ's Odoo ERP.",
+      description: "Implemented token-based onboarding forms, a three-step salary approval chain, generated offer letters, and automatic employee creation at hire in an Odoo ERP.",
       tech: ["Odoo", "Python", "PostgreSQL"],
     },
     {
       title: "Meeting Management Module",
-      company: "Strativ BD Limited",
       description: "Built Google Calendar OAuth sync, recurring events, automated agenda and protocol emails, and a real-time Chrome extension for live notes over Django Channels WebSockets.",
       tech: ["Django Channels", "WebSockets", "Google OAuth"],
     },
     {
       title: "Automated Report System",
-      company: "Strativ BD Limited",
       description: "Designed scheduled report delivery through background job queues with magic-link access and templated emails, eliminating the client's manual weekly reporting.",
       tech: ["Django", "Celery", "Redis"],
     },
