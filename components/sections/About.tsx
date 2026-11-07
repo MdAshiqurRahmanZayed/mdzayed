@@ -2,7 +2,7 @@
 
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
-import { Award, Star } from "lucide-react";
+import { Award, Briefcase, Star } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -62,6 +62,38 @@ export default function About() {
               <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
                 {stat.label}
               </span>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* INDUSTRIAL WORKS */}
+      <motion.section variants={item}>
+        <div className="mb-2">
+          <h3 className="text-lg font-semibold inline-flex items-center gap-2">
+            <Briefcase size={20} className="text-highlight" />
+            Industrial Works
+          </h3>
+          <p className="text-sm text-foreground/50 mt-1">A glimpse into my professional work.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
+          {portfolioData.industrialProjects.map((work) => (
+            <motion.div
+              key={work.title}
+              variants={item}
+              whileHover={{ y: -4 }}
+              className="rounded-xl border border-border bg-card p-4 shadow-lg"
+            >
+              <span className="text-xs text-highlight font-medium">{work.company}</span>
+              <h4 className="font-semibold text-base mt-1">{work.title}</h4>
+              <p className="text-sm text-foreground/60 mt-1">{work.description}</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {work.tech.map((t) => (
+                  <span key={t} className="bg-foreground/5 text-foreground/80 px-2 py-1 rounded-md text-xs border border-border">
+                    {t}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
