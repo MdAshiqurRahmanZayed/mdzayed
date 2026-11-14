@@ -2,6 +2,7 @@
 
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Award, Briefcase, Star } from "lucide-react";
 
 const container = {
@@ -50,19 +51,20 @@ export default function About() {
         </h3>
         <div className="flex flex-wrap gap-4 md:gap-6">
           {portfolioData.about.stats.map((stat) => (
-            <motion.div
-              key={stat.label}
-              variants={item}
-              whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center text-center min-w-[120px] p-4 md:p-6 rounded-xl bg-card border border-border"
-            >
-              <span className="text-2xl md:text-3xl font-bold text-highlight mb-2">
-                {stat.value}
-              </span>
-              <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
-                {stat.label}
-              </span>
-            </motion.div>
+            <Link key={stat.label} href={stat.href}>
+              <motion.div
+                variants={item}
+                whileHover={{ scale: 1.05 }}
+                className="flex flex-col items-center text-center min-w-[120px] h-full p-4 md:p-6 rounded-xl bg-card border border-border hover:border-highlight transition-colors cursor-pointer"
+              >
+                <span className="text-2xl md:text-3xl font-bold text-highlight mb-2">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
+                  {stat.label}
+                </span>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </motion.section>
