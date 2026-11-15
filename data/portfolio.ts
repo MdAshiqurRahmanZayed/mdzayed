@@ -17,10 +17,10 @@ export const portfolioData = {
   about: {
     bio: "I am {name}, a {role} at {company} specializing in backend development and LLM-based solutions. With a strong foundation in building scalable, production-ready systems, I bring a practical approach to integrating AI and large language models into real-world business workflows. Driven by a passion for intelligent software, I thrive at the intersection of backend engineering and applied AI — crafting solutions that are not only technically sound but also impactful at scale.",
     stats: [
-      { label: "YEARS OF EXPERIENCE", value: "2+" },
-      { label: "PROJECTS COMPLETED", value: "10+" },
-      { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4" },
-      { label: "CERTIFICATIONS", value: "7+" },
+      { label: "YEARS OF EXPERIENCE", value: "2+", href: "/career" },
+      { label: "PROJECTS COMPLETED", value: "10+", href: "/creative-showcase" },
+      { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4", href: "/career" },
+      { label: "CERTIFICATIONS", value: "7+", href: "/achievement" },
     ],
   },
   experience: [
