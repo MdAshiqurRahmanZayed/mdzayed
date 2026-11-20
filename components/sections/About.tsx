@@ -5,10 +5,10 @@ import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function About() {
-  const { profile, about, industrialProjects, projects } = portfolioData;
+  const { profile, about, experience, industrialProjects, projects } = portfolioData;
 
   return (
     <motion.div
@@ -20,7 +20,7 @@ export default function About() {
       {/* HERO */}
       <motion.section variants={item} className="space-y-6 pt-2 md:pt-6">
         <p className="text-sm text-foreground/70">
-          {profile.role} · {profile.company}
+          {profile.role}
         </p>
         <h1 className="text-4xl font-medium leading-[1.1] tracking-tight md:text-6xl">
           {profile.name}
@@ -29,21 +29,18 @@ export default function About() {
           {about.bio}
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-highlight px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
-          >
-            <FileText size={16} />
-            Resume
-          </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:border-highlight hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+            className="inline-flex items-center gap-2 rounded-lg bg-highlight px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
           >
             Get in touch
             <ArrowRight size={16} />
+          </Link>
+          <Link
+            href="/career"
+            className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:border-highlight hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+          >
+            View career
           </Link>
         </div>
 
@@ -58,6 +55,34 @@ export default function About() {
             </Link>
           ))}
         </dl>
+      </motion.section>
+
+      {/* EXPERIENCE */}
+      <motion.section variants={item}>
+        <div className="mb-2 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Experience</h2>
+            <p className="mt-1 text-sm text-foreground/70">Where I have worked</p>
+          </div>
+          <Link
+            href="/career"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-highlight hover:underline underline-offset-4"
+          >
+            Full career
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+        <ul className="divide-y divide-border">
+          {experience.map((job) => (
+            <li key={`${job.company}-${job.role}`} className="grid gap-1 py-5 md:grid-cols-[220px_1fr] md:gap-8">
+              <p className="text-sm text-foreground/70">{job.period}</p>
+              <div>
+                <h3 className="text-base font-medium">{job.role}</h3>
+                <p className="mt-0.5 text-sm text-foreground/70">{job.company}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </motion.section>
 
       {/* PROJECTS */}
