@@ -1,37 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, MapPin, Smartphone, Linkedin, Github, Twitter, Instagram, Facebook, Moon, Sun, FileText } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { Mail, MapPin, Smartphone, Linkedin, Github, Twitter, Instagram, Facebook, FileText, type LucideIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Sidebar() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { profile } = portfolioData;
   const pathname = usePathname();
   const isRoot = pathname === "/";
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <aside className="bg-sidebar border border-border rounded-2xl flex flex-col items-center p-6">
       <div className="flex flex-col items-center w-full relative">
-        {mounted && (
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="Toggle theme"
-            className="absolute left-0 top-0 rounded-lg p-2 text-foreground/70 transition-colors hover:text-foreground z-20"
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </motion.button>
-        )}
+        <ThemeToggle className="absolute left-0 top-0 z-20" />
 
         <motion.div
           initial={isRoot ? { scale: 0.9, opacity: 0 } : false}
@@ -78,7 +62,7 @@ export default function Sidebar() {
 
         <div className="flex justify-center gap-3 pt-4">
           {profile.socials.map((social, idx) => {
-            const iconMap: Record<string, any> = {
+            const iconMap: Record<string, LucideIcon> = {
               LinkedIn: Linkedin,
               GitHub: Github,
               Facebook: Facebook,
@@ -104,7 +88,7 @@ export default function Sidebar() {
   );
 }
 
-function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, value: string }) {
+function ContactItem({ icon: Icon, label, value }: { icon: LucideIcon, label: string, value: string }) {
   return (
     <div className="flex items-center gap-3">
       <Icon size={16} className="shrink-0 text-foreground/70" />
@@ -116,7 +100,7 @@ function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, v
   );
 }
 
-function SocialIcon({ href, icon: Icon }: { href: string, icon: any }) {
+function SocialIcon({ href, icon: Icon }: { href: string, icon: LucideIcon }) {
   return (
     <motion.a
       href={href}
