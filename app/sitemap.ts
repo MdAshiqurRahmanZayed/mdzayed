@@ -1,0 +1,11 @@
+import type { MetadataRoute } from "next";
+import { routes, siteUrl } from "@/lib/site";
+
+export const dynamic = "force-static";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return routes.map(({ path, priority }) => ({
+    url: `${siteUrl}${path}`,
+    priority,
+  }));
+}

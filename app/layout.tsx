@@ -1,7 +1,10 @@
+import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import ToastContainer from "@/components/layout/Toast";
+import { portfolioData } from "@/data/portfolio";
+import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,21 +18,52 @@ export const viewport = {
   initialScale: 1,
 };
 
-export const metadata = {
-  title: "Md. Ashiqur Rahman Zayed - Portfolio",
-  description: "Portfolio of Md. Ashiqur Rahman Zayed, Software Engineer specializing in backend development and LLM-based solutions.",
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | Software Engineer`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Md. Ashiqur Rahman Zayed",
+    "Ashiqur Rahman Zayed",
+    "Software Engineer",
+    "Backend Developer",
+    "Django",
+    "Odoo",
+    "Python",
+    "Dhaka, Bangladesh",
+  ],
+  authors: [{ name: siteName, url: siteUrl }],
+  alternates: { canonical: "./" },
   openGraph: {
-    title: "Md. Ashiqur Rahman Zayed - Portfolio",
-    description: "Software Engineer specializing in backend development and LLM-based solutions.",
+    title: `${siteName} | Software Engineer`,
+    description: siteDescription,
+    url: siteUrl,
+    siteName,
     type: "website",
-    images: ["/md-zayed-profile.png"],
+    images: [{ url: "/md-zayed-profile.png", alt: siteName }],
   },
   twitter: {
     card: "summary",
-    title: "Md. Ashiqur Rahman Zayed - Portfolio",
-    description: "Software Engineer specializing in backend development and LLM-based solutions.",
+    title: `${siteName} | Software Engineer`,
+    description: siteDescription,
     images: ["/md-zayed-profile.png"],
   },
+  robots: { index: true, follow: true },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteName,
+  jobTitle: portfolioData.profile.role,
+  url: siteUrl,
+  image: `${siteUrl}${portfolioData.profile.avatar}`,
+  sameAs: portfolioData.profile.socials.map((social) => social.href),
+  address: { "@type": "PostalAddress", addressLocality: "Dhaka", addressCountry: "BD" },
+  knowsAbout: ["Backend development", "Django", "Odoo", "Python", "REST APIs"],
 };
 
 export default function RootLayout({
@@ -44,6 +78,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider>
           {children}
           <ToastContainer />
