@@ -17,9 +17,18 @@ export const viewport = {
 
 export const metadata = {
   title: "Md. Ashiqur Rahman Zayed - Portfolio",
-  description: "Portfolio of Md. Ashiqur Rahman Zayed, Software Engineer (Backend) at Strativ AB",
-  icons: {
-    icon: "/logo.png",
+  description: "Portfolio of Md. Ashiqur Rahman Zayed, Software Engineer specializing in backend development and LLM-based solutions.",
+  openGraph: {
+    title: "Md. Ashiqur Rahman Zayed - Portfolio",
+    description: "Software Engineer specializing in backend development and LLM-based solutions.",
+    type: "website",
+    images: ["/md-zayed-profile.png"],
+  },
+  twitter: {
+    card: "summary",
+    title: "Md. Ashiqur Rahman Zayed - Portfolio",
+    description: "Software Engineer specializing in backend development and LLM-based solutions.",
+    images: ["/md-zayed-profile.png"],
   },
 };
 
@@ -38,7 +47,7 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
           <ToastContainer />
-          <footer className="max-w-[1200px] mx-auto w-full px-4 py-6 text-center text-foreground/50 text-sm">
+          <footer className="max-w-[1200px] mx-auto w-full px-4 py-6 text-center text-foreground/70 text-sm">
             <p>&copy; {new Date().getFullYear()} Md. Ashiqur Rahman Zayed | All Rights Reserved</p>
           </footer>
         </ThemeProvider>
