@@ -2,55 +2,41 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const subscribe = () => () => {};
 
-const options = [
-  { value: "light", label: "Light theme", Icon: Sun },
-  { value: "dark", label: "Dark theme", Icon: Moon },
-] as const;
-
 export default function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const isDark = resolvedTheme === "dark";
 
   // Reserve space before mount so the header does not shift.
-  if (!mounted) return <div className={cn("h-8 w-[68px]", className)} />;
+  if (!mounted) return <div className={cn("size-9", className)} />;
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="Theme"
-      className={cn("relative flex h-8 w-[68px] items-center rounded-full border border-border bg-card p-0.5", className)}
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      className={cn(
+        "flex size-9 items-center justify-center rounded-full text-foreground/70 transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-2 focus-visible:outline-highlight",
+        className
+      )}
     >
-      {options.map(({ value, label, Icon }) => {
-        const active = resolvedTheme === value;
-        return (
-          <button
-            key={value}
-            role="radio"
-            aria-checked={active}
-            aria-label={label}
-            onClick={() => setTheme(value)}
-            className={cn(
-              "relative z-10 flex h-full flex-1 items-center justify-center rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-highlight",
-              active ? "text-background" : "text-foreground/60 hover:text-foreground"
-            )}
-          >
-            {active && (
-              <motion.span
-                layoutId="theme-thumb"
-                transition={{ type: "spring", stiffness: 500, damping: 36 }}
-                className="absolute inset-0 -z-10 rounded-full bg-highlight"
-              />
-            )}
-            <Icon size={14} />
-          </button>
-        );
-      })}
-    </div>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={isDark ? "sun" : "moon"}
+          initial={{ opacity: 0, rotate: -45, scale: 0.8 }}
+          animate={{ opacity: 1, rotate: 0, scale: 1 }}
+          exit={{ opacity: 0, rotate: 45, scale: 0.8 }}
+          transition={{ duration: 0.16 }}
+          className="flex"
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+        </motion.span>
+      </AnimatePresence>
+    </button>
   );
 }
