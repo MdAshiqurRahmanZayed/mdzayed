@@ -1,22 +1,11 @@
 "use client";
 
+import { container, item } from "@/lib/motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Award, Briefcase, Star } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
 
 export default function About() {
   return (
@@ -27,11 +16,7 @@ export default function About() {
       className="space-y-8"
     >
       {/* HEADER */}
-      <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
-          About Me
-        </h2>
-      </motion.header>
+      <SectionHeader title="About Me" />
 
       {/* BIO */}
       <motion.section variants={item} className="space-y-4 text-foreground/80 leading-relaxed text-sm md:text-base">

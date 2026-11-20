@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Md. Ashiqur Rahman Zayed",
     role: "Software Engineer",
     company: "Scandinavian Fullstack BD Limited",
-    avatar: "https://raw.githubusercontent.com/MdAshiqurRahmanZayed/mdzayed/refs/heads/main/public/md-zayed-profile.png",
+    avatar: "/md-zayed-profile.png",
     email: "mdarzayed01@gmail.com",
     phone: "+88 01558920843",
     location: "Dhaka, Bangladesh",

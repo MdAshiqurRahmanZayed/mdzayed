@@ -34,11 +34,11 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
+      <body className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
         <ThemeProvider>
           {children}
           <ToastContainer />
-          <footer className="max-w-[1200px] mx-auto w-full px-4 py-6 text-center text-[var(--foreground)]/50 text-sm">
+          <footer className="max-w-[1200px] mx-auto w-full px-4 py-6 text-center text-foreground/50 text-sm">
             <p>&copy; {new Date().getFullYear()} Md. Ashiqur Rahman Zayed | All Rights Reserved</p>
           </footer>
         </ThemeProvider>

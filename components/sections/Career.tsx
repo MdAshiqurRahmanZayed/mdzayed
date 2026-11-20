@@ -1,21 +1,10 @@
 "use client";
 
+import { container, item } from "@/lib/motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import { Briefcase, School } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-};
 
 export default function Resume() {
   return (
@@ -26,11 +15,7 @@ export default function Resume() {
       className="space-y-10"
     >
       {/* HEADER */}
-      <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
-          Career Snapshot
-        </h2>
-      </motion.header>
+      <SectionHeader title="Career Snapshot" />
 
       {/* EXPERIENCE */}
       <motion.section variants={item}>

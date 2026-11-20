@@ -1,21 +1,10 @@
 "use client";
 
+import { container, item } from "@/lib/motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import { Trophy, GraduationCap } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
 
 export default function Achievements() {
   return (
@@ -26,11 +15,7 @@ export default function Achievements() {
       className="space-y-8"
     >
       {/* HEADER */}
-      <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
-          Achievements & Certifications
-        </h2>
-      </motion.header>
+      <SectionHeader title="Achievements & Certifications" />
 
       {/* ACHIEVEMENTS */}
       {portfolioData.achievements && portfolioData.achievements.length > 0 && (

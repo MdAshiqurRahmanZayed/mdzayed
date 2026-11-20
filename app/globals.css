@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold-600: #ceb36b;
-  --color-gold-700: #b99e5a;
-  --color-sky-blue-crayola: #76D7EA;
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar: var(--sidebar-bg);
@@ -60,7 +56,7 @@ body {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sky-blue-crayola);
+  background: var(--highlight);
 }
 
 ::selection {
@@ -79,15 +75,3 @@ body {
 .pb-safe {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
 }
-
-.text-highlight { color: var(--highlight) !important; }
-.bg-highlight { background-color: var(--highlight) !important; }
-.bg-highlight-10 { background-color: var(--highlight); opacity: 0.1; }
-.border-highlight { border-color: var(--highlight) !important; }
-.hover\:text-highlight:hover { color: var(--highlight) !important; }
-.hover\:border-highlight:hover { border-color: var(--highlight) !important; }
-.from-highlight { --tw-gradient-from: var(--highlight) var(--tw-gradient-from-position) !important; }
-.to-highlight { --tw-gradient-to: var(--highlight) var(--tw-gradient-to-position) !important; }
-.after\:from-highlight::after { --tw-gradient-from: var(--highlight) var(--tw-gradient-from-position) !important; }
-.after\:to-highlight::after { --tw-gradient-to: var(--highlight) var(--tw-gradient-to-position) !important; }
-.before\:bg-highlight::before { background-color: var(--highlight) !important; }
