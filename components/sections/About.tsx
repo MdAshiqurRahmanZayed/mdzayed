@@ -5,10 +5,10 @@ import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 
 export default function About() {
-  const { about, experience, industrialProjects, projects } = portfolioData;
+  const { profile, about, experience, industrialProjects, projects } = portfolioData;
 
   return (
     <motion.div
@@ -27,16 +27,18 @@ export default function About() {
         </p>
 
         {/* HIGHLIGHTS */}
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 md:grid-cols-4">
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 md:grid-cols-4">
           {about.stats.map((stat) => (
-            <Link key={stat.label} href={stat.href} className="group">
-              <dt className="text-2xl font-medium tabular-nums tracking-tight transition-colors group-hover:text-highlight md:text-3xl">
-                {stat.value}
-              </dt>
-              <dd className="mt-1 text-xs text-foreground/70">{stat.label}</dd>
-            </Link>
+            <li key={stat.label}>
+              <Link href={stat.href} className="group block">
+                <span className="block text-2xl font-medium tabular-nums tracking-tight transition-colors group-hover:text-highlight md:text-3xl">
+                  {stat.value}
+                </span>
+                <span className="mt-1 block text-xs text-foreground/70">{stat.label}</span>
+              </Link>
+            </li>
           ))}
-        </dl>
+        </ul>
       </motion.section>
 
       {/* EXPERIENCE */}
@@ -61,6 +63,29 @@ export default function About() {
               <div>
                 <h3 className="text-base font-medium">{job.role}</h3>
                 <p className="mt-0.5 text-sm text-foreground/70">{job.company}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </motion.section>
+
+      {/* INDUSTRIAL WORKS */}
+      <motion.section variants={item}>
+        <div className="mb-2">
+          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Industrial Works</h2>
+          <p className="mt-1 text-sm text-foreground/70">Selected professional work</p>
+        </div>
+        <ul className="divide-y divide-border">
+          {industrialProjects.map((work) => (
+            <li key={work.title} className="grid gap-3 py-6 md:grid-cols-[220px_1fr] md:gap-8">
+              <h3 className="text-base font-medium">{work.title}</h3>
+              <div>
+                <p className="text-sm leading-relaxed text-foreground/70">{work.description}</p>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-foreground/70">
+                  {work.tech.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
               </div>
             </li>
           ))}
@@ -116,24 +141,30 @@ export default function About() {
         </div>
       </motion.section>
 
-      {/* INDUSTRIAL WORKS */}
-      <motion.section variants={item}>
-        <div className="mb-2">
-          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Industrial Works</h2>
-          <p className="mt-1 text-sm text-foreground/70">Selected professional work</p>
-        </div>
-        <ul className="divide-y divide-border">
-          {industrialProjects.map((work) => (
-            <li key={work.title} className="grid gap-3 py-6 md:grid-cols-[220px_1fr] md:gap-8">
-              <h3 className="text-base font-medium">{work.title}</h3>
-              <div>
-                <p className="text-sm leading-relaxed text-foreground/70">{work.description}</p>
-                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-foreground/70">
-                  {work.tech.map((t) => (
-                    <li key={t}>{t}</li>
-                  ))}
-                </ul>
-              </div>
+      {/* QUICK LINKS (mobile only; desktop has the sidebar) */}
+      <motion.section variants={item} className="md:hidden">
+        <h2 className="mb-3 text-2xl font-medium tracking-tight">Get in touch</h2>
+        <ul className="divide-y divide-border border-y border-border">
+          {[
+            { href: `mailto:${profile.email}`, label: profile.email, Icon: Mail, external: false },
+            ...profile.socials.map((social) => ({
+              href: social.href,
+              label: social.label,
+              Icon: social.label === "LinkedIn" ? Linkedin : Github,
+              external: true,
+            })),
+            { href: "/resume.pdf", label: "Resume", Icon: FileText, external: true },
+          ].map(({ href, label, Icon, external }) => (
+            <li key={label}>
+              <a
+                href={href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="flex items-center gap-3 py-3.5 text-sm transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-highlight"
+              >
+                <Icon size={16} className="shrink-0 text-foreground/70" />
+                <span className="min-w-0 flex-1 truncate">{label}</span>
+                <ArrowUpRight size={14} className="shrink-0 text-foreground/40" />
+              </a>
             </li>
           ))}
         </ul>
