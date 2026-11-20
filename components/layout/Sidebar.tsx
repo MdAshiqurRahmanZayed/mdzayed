@@ -33,7 +33,7 @@ export default function Sidebar() {
         </motion.div>
 
         <div className="text-center mb-2">
-          <h1 className="text-xl font-medium">{profile.name}</h1>
+          <p className="text-xl font-medium">{profile.name}</p>
           <p className="text-sm px-4 py-1 rounded-xl bg-card border border-border font-medium mt-2 inline-block">
             {profile.role}
           </p>

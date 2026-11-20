@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function About() {
-  const { profile, about, experience, industrialProjects, projects } = portfolioData;
+  const { about, experience, industrialProjects, projects } = portfolioData;
 
   return (
     <motion.div
@@ -19,30 +19,12 @@ export default function About() {
     >
       {/* HERO */}
       <motion.section variants={item} className="space-y-6 pt-2 md:pt-6">
-        <p className="text-sm text-foreground/70">
-          {profile.role}
-        </p>
-        <h1 className="text-4xl font-medium leading-[1.1] tracking-tight md:text-6xl">
-          {profile.name}
+        <h1 className="max-w-2xl text-3xl font-medium leading-[1.15] tracking-tight md:text-5xl">
+          {about.headline}
         </h1>
         <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
           {about.bio}
         </p>
-        <div className="flex flex-wrap gap-3 pt-2">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-highlight px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
-          >
-            Get in touch
-            <ArrowRight size={16} />
-          </Link>
-          <Link
-            href="/career"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:border-highlight hover:text-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
-          >
-            View career
-          </Link>
-        </div>
 
         {/* HIGHLIGHTS */}
         <dl className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 md:grid-cols-4">

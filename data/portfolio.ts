@@ -15,7 +15,8 @@ export const portfolioData = {
     ],
   },
   about: {
-    bio: "I specialize in backend development and LLM-based solutions. I build scalable, production-ready systems and integrate language models into real business workflows.",
+    headline: "I build scalable backend systems and LLM-powered workflows.",
+    bio: "Django and Odoo work across ERP, SaaS and investment platforms, from APIs and authentication to background jobs and real-time features.",
     stats: [
       { label: "Years of experience", value: "2+", href: "/career" },
       { label: "Projects completed", value: "10+", href: "/creative-showcase" },
