@@ -1,11 +1,10 @@
 "use client";
 
 import { container, item } from "@/lib/motion";
-import SectionHeader from "@/components/ui/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Award, Briefcase, Star } from "lucide-react";
+import { ArrowRight, Award, Briefcase, FileText, Star } from "lucide-react";
 
 export default function About() {
   return (
@@ -13,19 +12,37 @@ export default function About() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="space-y-8"
+      className="space-y-12"
     >
-      {/* HEADER */}
-      <SectionHeader title="About Me" />
-
-      {/* BIO */}
-      <motion.section variants={item} className="space-y-4 text-foreground/80 leading-relaxed text-sm md:text-base">
-        <p dangerouslySetInnerHTML={{
-          __html: portfolioData.about.bio
-            .replace(/{name}/g, `<span class="text-highlight font-medium">${portfolioData.profile.name}</span>`)
-            .replace(/{role}/g, `<span class="text-highlight font-medium">${portfolioData.profile.role}</span>`)
-            .replace(/{company}/g, `<span class="text-highlight font-medium">${portfolioData.profile.company}</span>`)
-        }} />
+      {/* HERO */}
+      <motion.section variants={item} className="space-y-6 pt-2 md:pt-6">
+        <p className="text-sm text-foreground/60">
+          {portfolioData.profile.role} · {portfolioData.profile.company}
+        </p>
+        <h1 className="text-4xl font-medium leading-[1.1] tracking-tight md:text-6xl">
+          {portfolioData.profile.name}
+        </h1>
+        <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
+          {portfolioData.about.bio.replace(/{name}/g, portfolioData.profile.name).replace(/{role}/g, portfolioData.profile.role).replace(/{company}/g, portfolioData.profile.company)}
+        </p>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-highlight px-4 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
+          >
+            <FileText size={16} />
+            Resume
+          </a>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:border-highlight hover:text-highlight"
+          >
+            Get in touch
+            <ArrowRight size={16} />
+          </Link>
+        </div>
       </motion.section>
 
       {/* HIGHLIGHTS */}
