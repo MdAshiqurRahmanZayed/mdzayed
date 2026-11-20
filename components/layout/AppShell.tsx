@@ -2,6 +2,7 @@
 
 import Sidebar from "@/components/layout/Sidebar";
 import Navbar from "@/components/layout/Navbar";
+import MobileHeader from "@/components/layout/MobileHeader";
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +14,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       </div>
 
       <div className="md:hidden">
-        <Sidebar />
+        <MobileHeader />
       </div>
 
       <main className="min-w-0 flex-1 pb-24 md:pb-0">{children}</main>
