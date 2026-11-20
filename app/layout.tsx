@@ -4,7 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import ToastContainer from "@/components/layout/Toast";
 import { portfolioData } from "@/data/portfolio";
-import { siteDescription, siteName, siteUrl } from "@/lib/site";
+import { nameVariants, siteDescription, siteName, siteUrl } from "@/lib/site";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,8 +26,7 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
-    "Md. Ashiqur Rahman Zayed",
-    "Ashiqur Rahman Zayed",
+    ...nameVariants,
     "Software Engineer",
     "Backend Developer",
     "Django",
@@ -58,6 +57,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: siteName,
+  alternateName: nameVariants.filter((n) => n !== siteName),
   jobTitle: portfolioData.profile.role,
   url: siteUrl,
   image: `${siteUrl}${portfolioData.profile.avatar}`,
