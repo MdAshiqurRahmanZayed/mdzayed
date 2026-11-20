@@ -4,6 +4,7 @@ import { container, item } from "@/lib/motion";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Portfolio() {
   return (
@@ -25,13 +26,15 @@ export default function Portfolio() {
             target="_blank"
             rel="noopener noreferrer"
             variants={item}
-                        className="group rounded-xl overflow-hidden border border-border bg-card"
+            className="group rounded-xl overflow-hidden border border-border bg-card"
           >
             <div className="relative h-44 md:h-52 w-full overflow-hidden">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="object-cover w-full h-full"
+                fill
+                sizes="(min-width: 768px) 40vw, 100vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-white text-sm font-medium px-4 py-2 bg-highlight rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
@@ -42,7 +45,7 @@ export default function Portfolio() {
             <div className="p-4">
               <span className="text-xs text-highlight font-medium">{project.link.replace("https://", "")}</span>
               <h3 className="font-medium text-base mt-1">{project.title}</h3>
-              <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{project.description}</p>
+              <p className="text-sm text-foreground/70 mt-1 line-clamp-2">{project.description}</p>
             </div>
           </motion.a>
         ))}
