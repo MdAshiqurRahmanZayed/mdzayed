@@ -20,7 +20,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <main className="min-w-0 flex-1 pb-24 md:pb-0">{children}</main>
 
       <div className="hidden shrink-0 md:block">
-        <div className="sticky top-8">
+        <div className="sticky top-1/2 -translate-y-1/2">
           <Navbar />
         </div>
       </div>
