@@ -20,7 +20,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <aside className="bg-sidebar border border-border rounded-[20px] sticky top-10 flex flex-col items-center p-6 transition-all duration-300">
+    <aside className="bg-sidebar border border-border rounded-2xl flex flex-col items-center p-6">
       <div className="flex flex-col items-center w-full relative">
         {mounted && (
           <motion.button
