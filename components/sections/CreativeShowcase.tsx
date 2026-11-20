@@ -42,7 +42,7 @@ export default function Portfolio() {
             </div>
             <div className="p-4">
               <span className="text-xs text-highlight font-medium">{project.link.replace("https://", "")}</span>
-              <h3 className="font-semibold text-base mt-1">{project.title}</h3>
+              <h3 className="font-medium text-base mt-1">{project.title}</h3>
               <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{project.description}</p>
             </div>
           </motion.a>

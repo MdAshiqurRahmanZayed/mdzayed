@@ -64,14 +64,14 @@ export default function Contact() {
 
       {/* CONTACT DETAILS */}
       <motion.section variants={item}>
-        <h3 className="text-lg font-semibold mb-4">Contact Details</h3>
+        <h3 className="text-lg font-medium mb-4">Contact Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
             <div className="p-2.5 rounded-xl bg-highlight/10 text-highlight">
               <Phone size={18} />
             </div>
             <div>
-              <p className="text-xs text-foreground/50 uppercase tracking-wider mb-0.5">Mobile</p>
+              <p className="text-xs text-foreground/50 mb-0.5">Mobile</p>
               <a href={`tel:${portfolioData.profile.phone}`} className="text-sm font-medium hover:text-highlight transition-colors">
                 {portfolioData.profile.phone}
               </a>
@@ -82,7 +82,7 @@ export default function Contact() {
               <Mail size={18} />
             </div>
             <div>
-              <p className="text-xs text-foreground/50 uppercase tracking-wider mb-0.5">Email</p>
+              <p className="text-xs text-foreground/50 mb-0.5">Email</p>
               <a href={`mailto:${portfolioData.profile.email}`} className="text-sm font-medium hover:text-highlight transition-colors">
                 {portfolioData.profile.email}
               </a>
@@ -93,7 +93,7 @@ export default function Contact() {
 
       {/* CONTACT FORM */}
       <motion.section variants={item}>
-        <h3 className="text-lg font-semibold mb-5">Contact Form</h3>
+        <h3 className="text-lg font-medium mb-5">Contact Form</h3>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
@@ -126,7 +126,7 @@ export default function Contact() {
               whileTap={{ scale: 0.95 }}
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-gradient-to-r from-[var(--color-highlight)] to-[var(--color-highlight)] text-black px-6 py-3 rounded-xl font-semibold text-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 bg-highlight text-background px-6 py-3 rounded-xl font-medium text-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <>Sending...</>

@@ -11,26 +11,26 @@
 
 @layer base {
   :root {
-    --background: #F5F2ED;
-    --foreground: #3D3633;
-    --sidebar-bg: #EDE8E0;
-    --border: #D8D2C8;
-    --card-bg: #F8F5F0;
-    --highlight: #C4704B;
+    --background: #F6F4F0;
+    --foreground: #2B2724;
+    --sidebar-bg: #F1EEE8;
+    --card-bg: #FBFAF7;
+    --border: rgb(43 39 36 / 0.12);
+    --highlight: #A94E32;
     --map-filter: none;
-    --scrollbar-bg: #EDE8E0;
-    --scrollbar-thumb: #C9C2B8;
+    --scrollbar-bg: #F6F4F0;
+    --scrollbar-thumb: #CFC9BF;
   }
   .dark {
-    --background: #1F1B18;
-    --foreground: #F5F2ED;
-    --sidebar-bg: #2A2622;
-    --border: #3D3833;
-    --card-bg: #2D2824;
+    --background: #151413;
+    --foreground: #ECE9E4;
+    --sidebar-bg: #1A1918;
+    --card-bg: #1C1B19;
+    --border: rgb(236 233 228 / 0.1);
     --highlight: #F08060;
     --map-filter: invert(0.9) hue-rotate(180deg) brightness(0.95) saturate(0.9);
-    --scrollbar-bg: #1F1B18;
-    --scrollbar-thumb: #3D3833;
+    --scrollbar-bg: #151413;
+    --scrollbar-thumb: #3A3835;
   }
 }
 
@@ -60,8 +60,8 @@ body {
 }
 
 ::selection {
-  background: var(--highlight);
-  color: #000;
+  background: color-mix(in srgb, var(--highlight) 30%, transparent);
+  color: inherit;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

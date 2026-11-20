@@ -49,7 +49,7 @@ export default function Sidebar() {
         </motion.div>
 
         <div className="text-center mb-2">
-          <h1 className="text-xl font-bold">{profile.name}</h1>
+          <h1 className="text-xl font-medium">{profile.name}</h1>
           <p className="text-sm px-4 py-1 rounded-xl bg-card border border-border font-medium mt-2 inline-block">
             {profile.role}
           </p>
@@ -70,7 +70,7 @@ export default function Sidebar() {
               <MapPin size={16} />
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wider">Location</p>
+              <p className="text-foreground/60 text-xs">Location</p>
               <p className="text-sm truncate">{profile.location}</p>
             </div>
           </a>
@@ -116,7 +116,7 @@ function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, v
         <Icon size={16} />
       </div>
       <div className="flex-1 overflow-hidden">
-        <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wider">{label}</p>
+        <p className="text-foreground/60 text-xs">{label}</p>
         <p className="text-sm truncate">{value}</p>
       </div>
     </motion.div>

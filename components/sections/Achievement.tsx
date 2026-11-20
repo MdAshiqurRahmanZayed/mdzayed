@@ -20,14 +20,14 @@ export default function Achievements() {
       {/* ACHIEVEMENTS */}
       {portfolioData.achievements && portfolioData.achievements.length > 0 && (
         <motion.section variants={item}>
-          <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
+          <h3 className="text-lg font-medium mb-4 inline-flex items-center gap-2">
             <Trophy size={20} className="text-highlight" />
             Achievements
           </h3>
           <div className="space-y-3">
             {portfolioData.achievements.map((achievement, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-card border border-border">
-                <h4 className="font-semibold text-sm text-highlight">{achievement.title}</h4>
+                <h4 className="font-medium text-sm text-highlight">{achievement.title}</h4>
                 <p className="text-sm text-foreground/60 mt-1">{achievement.description}</p>
               </div>
             ))}
@@ -38,7 +38,7 @@ export default function Achievements() {
       {/* CERTIFICATIONS */}
       {portfolioData.certifications && portfolioData.certifications.length > 0 && (
         <motion.section variants={item}>
-          <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
+          <h3 className="text-lg font-medium mb-4 inline-flex items-center gap-2">
             <GraduationCap size={20} className="text-highlight" />
             Certifications
           </h3>

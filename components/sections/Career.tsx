@@ -23,7 +23,7 @@ export default function Resume() {
           <div className="p-2 rounded-xl bg-highlight/10 text-highlight">
             <Briefcase size={18} />
           </div>
-          <h3 className="text-lg font-semibold">Experience</h3>
+          <h3 className="text-lg font-medium">Experience</h3>
         </div>
         
         <div className="ml-7 border-l border-border pl-8 space-y-8">
@@ -33,7 +33,7 @@ export default function Resume() {
               variants={item}
               className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-highlight before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
             >
-              <h4 className="font-semibold text-base">{exp.company}</h4>
+              <h4 className="font-medium text-base">{exp.company}</h4>
               <p className="text-highlight text-sm mb-1">{exp.period}</p>
               <p className="text-sm font-medium mb-2">{exp.role}</p>
               <div className="text-foreground/60 text-sm space-y-1">
@@ -52,7 +52,7 @@ export default function Resume() {
           <div className="p-2 rounded-xl bg-highlight/10 text-highlight">
             <School size={18} />
           </div>
-          <h3 className="text-lg font-semibold">Education</h3>
+          <h3 className="text-lg font-medium">Education</h3>
         </div>
         
         <div className="ml-7 border-l border-border pl-8 space-y-8">
@@ -62,7 +62,7 @@ export default function Resume() {
               variants={item}
               className="relative before:content-[''] before:absolute before:-left-[41px] before:top-2 before:w-3 before:h-3 before:bg-highlight before:rounded-full before:shadow-[0_0_0_4px_var(--border)]"
             >
-              <h4 className="font-semibold text-base">{edu.institution}</h4>
+              <h4 className="font-medium text-base">{edu.institution}</h4>
               <p className="text-sm font-medium mb-2">{edu.degree}</p>
               <p className="text-foreground/60 text-sm">{edu.description}</p>
             </motion.div>
@@ -72,7 +72,7 @@ export default function Resume() {
 
       {/* SKILLS */}
       <motion.section variants={item}>
-        <h3 className="text-lg font-semibold mb-5">My Skills</h3>
+        <h3 className="text-lg font-medium mb-5">My Skills</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {portfolioData.skills.map((skillGroup) => (
             <div key={skillGroup.name}>

@@ -22,15 +22,15 @@ export default function About() {
       <motion.section variants={item} className="space-y-4 text-foreground/80 leading-relaxed text-sm md:text-base">
         <p dangerouslySetInnerHTML={{
           __html: portfolioData.about.bio
-            .replace(/{name}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.name}</span>`)
-            .replace(/{role}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.role}</span>`)
-            .replace(/{company}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.company}</span>`)
+            .replace(/{name}/g, `<span class="text-highlight font-medium">${portfolioData.profile.name}</span>`)
+            .replace(/{role}/g, `<span class="text-highlight font-medium">${portfolioData.profile.role}</span>`)
+            .replace(/{company}/g, `<span class="text-highlight font-medium">${portfolioData.profile.company}</span>`)
         }} />
       </motion.section>
 
       {/* HIGHLIGHTS */}
       <motion.section variants={item}>
-        <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
+        <h3 className="text-lg font-medium mb-4 inline-flex items-center gap-2">
           <Star size={20} className="text-highlight" />
           Highlights & Successes
         </h3>
@@ -42,10 +42,10 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center text-center min-w-[120px] h-full p-4 md:p-6 rounded-xl bg-card border border-border hover:border-highlight transition-colors cursor-pointer"
               >
-                <span className="text-2xl md:text-3xl font-bold text-highlight mb-2">
+                <span className="text-2xl md:text-3xl font-medium tabular-nums text-highlight mb-2">
                   {stat.value}
                 </span>
-                <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
+                <span className="text-xs text-foreground/60">
                   {stat.label}
                 </span>
               </motion.div>
@@ -57,7 +57,7 @@ export default function About() {
       {/* INDUSTRIAL WORKS */}
       <motion.section variants={item}>
         <div className="mb-2">
-          <h3 className="text-lg font-semibold inline-flex items-center gap-2">
+          <h3 className="text-lg font-medium inline-flex items-center gap-2">
             <Briefcase size={20} className="text-highlight" />
             Industrial Works
           </h3>
@@ -71,7 +71,7 @@ export default function About() {
               whileHover={{ y: -4 }}
               className="rounded-xl border border-border bg-card p-4 shadow-lg"
             >
-              <h4 className="font-semibold text-base">{work.title}</h4>
+              <h4 className="font-medium text-base">{work.title}</h4>
               <p className="text-sm text-foreground/60 mt-1">{work.description}</p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {work.tech.map((t) => (
@@ -88,7 +88,7 @@ export default function About() {
       {/* FEATURED PORTFOLIOS */}
       <motion.section variants={item}>
         <div className="mb-2">
-          <h3 className="text-lg font-semibold inline-flex items-center gap-2">
+          <h3 className="text-lg font-medium inline-flex items-center gap-2">
             <Award size={20} className="text-highlight" />
             Projects
           </h3>
@@ -114,7 +114,7 @@ export default function About() {
               </div>
               <div className="p-4">
                 <span className="text-xs text-highlight font-medium">{project.category}</span>
-                <h4 className="font-semibold text-base mt-1">{project.title}</h4>
+                <h4 className="font-medium text-base mt-1">{project.title}</h4>
                 <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{project.description}</p>
               </div>
             </motion.a>
