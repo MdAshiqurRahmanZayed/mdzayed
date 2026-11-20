@@ -1,140 +1,173 @@
 "use client";
 
+import { container, item } from "@/lib/motion";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { Award, Briefcase, Star } from "lucide-react";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+import { ArrowRight, ArrowUpRight, FileText, Github, Linkedin, Mail } from "lucide-react";
 
 export default function About() {
+  const { profile, about, experience, industrialProjects, projects } = portfolioData;
+
   return (
     <motion.div
       variants={container}
       initial="hidden"
       animate="show"
-      className="space-y-8"
+      className="space-y-16"
     >
-      {/* HEADER */}
-      <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-5 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
-          About Me
-        </h2>
-      </motion.header>
+      {/* HERO */}
+      <motion.section variants={item} className="space-y-6 pt-2 md:pt-6">
+        <h1 className="max-w-2xl text-3xl font-medium leading-[1.15] tracking-tight md:text-5xl">
+          {about.headline}
+        </h1>
+        <p className="max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
+          {about.bio}
+        </p>
 
-      {/* BIO */}
-      <motion.section variants={item} className="space-y-4 text-foreground/80 leading-relaxed text-sm md:text-base">
-        <p dangerouslySetInnerHTML={{
-          __html: portfolioData.about.bio
-            .replace(/{name}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.name}</span>`)
-            .replace(/{role}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.role}</span>`)
-            .replace(/{company}/g, `<span class="text-highlight font-semibold">${portfolioData.profile.company}</span>`)
-        }} />
-      </motion.section>
-
-      {/* HIGHLIGHTS */}
-      <motion.section variants={item}>
-        <h3 className="text-lg font-semibold mb-4 inline-flex items-center gap-2">
-          <Star size={20} className="text-highlight" />
-          Highlights & Successes
-        </h3>
-        <div className="flex flex-wrap gap-4 md:gap-6">
-          {portfolioData.about.stats.map((stat) => (
-            <Link key={stat.label} href={stat.href}>
-              <motion.div
-                variants={item}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center text-center min-w-[120px] h-full p-4 md:p-6 rounded-xl bg-card border border-border hover:border-highlight transition-colors cursor-pointer"
-              >
-                <span className="text-2xl md:text-3xl font-bold text-highlight mb-2">
+        {/* HIGHLIGHTS */}
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 md:grid-cols-4">
+          {about.stats.map((stat) => (
+            <li key={stat.label}>
+              <Link href={stat.href} className="group block">
+                <span className="block text-2xl font-medium tabular-nums tracking-tight transition-colors group-hover:text-highlight md:text-3xl">
                   {stat.value}
                 </span>
-                <span className="text-[10px] md:text-xs text-foreground/60 font-medium uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </motion.div>
-            </Link>
+                <span className="mt-1 block text-xs text-foreground/70">{stat.label}</span>
+              </Link>
+            </li>
           ))}
+        </ul>
+      </motion.section>
+
+      {/* EXPERIENCE */}
+      <motion.section variants={item}>
+        <div className="mb-2 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Experience</h2>
+            <p className="mt-1 text-sm text-foreground/70">Where I have worked</p>
+          </div>
+          <Link
+            href="/career"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-highlight hover:underline underline-offset-4"
+          >
+            Full career
+            <ArrowRight size={14} />
+          </Link>
         </div>
+        <ul className="divide-y divide-border">
+          {experience.map((job) => (
+            <li key={`${job.company}-${job.role}`} className="grid gap-1 py-5 md:grid-cols-[220px_1fr] md:gap-8">
+              <p className="text-sm text-foreground/70">{job.period}</p>
+              <div>
+                <h3 className="text-base font-medium">{job.role}</h3>
+                <p className="mt-0.5 text-sm text-foreground/70">{job.company}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </motion.section>
 
       {/* INDUSTRIAL WORKS */}
       <motion.section variants={item}>
         <div className="mb-2">
-          <h3 className="text-lg font-semibold inline-flex items-center gap-2">
-            <Briefcase size={20} className="text-highlight" />
-            Industrial Works
-          </h3>
-          <p className="text-sm text-foreground/50 mt-1">A glimpse into my professional work.</p>
+          <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Industrial Works</h2>
+          <p className="mt-1 text-sm text-foreground/70">Selected professional work</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-          {portfolioData.industrialProjects.map((work) => (
-            <motion.div
-              key={work.title}
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="rounded-xl border border-border bg-card p-4 shadow-lg"
-            >
-              <h4 className="font-semibold text-base">{work.title}</h4>
-              <p className="text-sm text-foreground/60 mt-1">{work.description}</p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {work.tech.map((t) => (
-                  <span key={t} className="bg-foreground/5 text-foreground/80 px-2 py-1 rounded-md text-xs border border-border">
-                    {t}
-                  </span>
-                ))}
+        <ul className="divide-y divide-border">
+          {industrialProjects.map((work) => (
+            <li key={work.title} className="grid gap-3 py-6 md:grid-cols-[220px_1fr] md:gap-8">
+              <h3 className="text-base font-medium">{work.title}</h3>
+              <div>
+                <p className="text-sm leading-relaxed text-foreground/70">{work.description}</p>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-foreground/70">
+                  {work.tech.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
               </div>
-            </motion.div>
+            </li>
+          ))}
+        </ul>
+      </motion.section>
+
+      {/* PROJECTS */}
+      <motion.section variants={item}>
+        <div className="mb-6 flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Projects</h2>
+            <p className="mt-1 text-sm text-foreground/70">Selected personal projects</p>
+          </div>
+          <Link
+            href="/creative-showcase"
+            className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-highlight hover:underline underline-offset-4"
+          >
+            View all
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+          {projects.slice(0, 2).map((project) => (
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group overflow-hidden rounded-xl border border-border bg-card transition-colors hover:border-highlight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+            >
+              <div className="relative h-40 w-full overflow-hidden border-b border-border md:h-48">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-base font-medium">{project.title}</h3>
+                  <ArrowUpRight
+                    size={16}
+                    className="mt-0.5 shrink-0 text-foreground/40 transition-colors group-hover:text-highlight"
+                  />
+                </div>
+                <p className="mt-1 text-xs text-foreground/70">{project.category}</p>
+                <p className="mt-2 line-clamp-2 text-sm text-foreground/70">{project.description}</p>
+              </div>
+            </a>
           ))}
         </div>
       </motion.section>
 
-      {/* FEATURED PORTFOLIOS */}
-      <motion.section variants={item}>
-        <div className="mb-2">
-          <h3 className="text-lg font-semibold inline-flex items-center gap-2">
-            <Award size={20} className="text-highlight" />
-            Projects
-          </h3>
-          <p className="text-sm text-foreground/50 mt-1">A glimpse into my personal projects.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-          {portfolioData.projects.slice(0, 2).map((project, idx) => (
-            <motion.a
-              key={idx}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={item}
-              whileHover={{ y: -4 }}
-              className="group rounded-xl overflow-hidden border border-border bg-card shadow-lg"
-            >
-              <div className="relative h-36 md:h-44 w-full overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-4">
-                <span className="text-xs text-highlight font-medium">{project.category}</span>
-                <h4 className="font-semibold text-base mt-1">{project.title}</h4>
-                <p className="text-sm text-foreground/60 mt-1 line-clamp-2">{project.description}</p>
-              </div>
-            </motion.a>
+      {/* QUICK LINKS (mobile only; desktop has the sidebar) */}
+      <motion.section variants={item} className="md:hidden">
+        <h2 className="mb-3 text-2xl font-medium tracking-tight">Get in touch</h2>
+        <ul className="divide-y divide-border border-y border-border">
+          {[
+            { href: `mailto:${profile.email}`, label: profile.email, Icon: Mail, external: false },
+            ...profile.socials.map((social) => ({
+              href: social.href,
+              label: social.label,
+              Icon: social.label === "LinkedIn" ? Linkedin : Github,
+              external: true,
+            })),
+            { href: "/resume.pdf", label: "Resume", Icon: FileText, external: true },
+          ].map(({ href, label, Icon, external }) => (
+            <li key={label}>
+              <a
+                href={href}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="flex items-center gap-3 py-3.5 text-sm transition-colors hover:text-highlight focus-visible:outline-2 focus-visible:outline-highlight"
+              >
+                <Icon size={16} className="shrink-0 text-foreground/70" />
+                <span className="min-w-0 flex-1 truncate">{label}</span>
+                <ArrowUpRight size={14} className="shrink-0 text-foreground/40" />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </motion.section>
     </motion.div>
   );

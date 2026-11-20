@@ -29,25 +29,17 @@ export default function Navbar({ isMobileBottom }: NavbarProps) {
         <ul className="flex justify-around items-center gap-1">
           {navItems.map(({ href, icon, label }) => (
             <li key={href}>
-              <Link href={href}>
+              <Link href={href} className="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight" aria-current={isActive(href) ? "page" : undefined}>
                 <motion.div
                   whileTap={{ scale: 0.9 }}
                   className={cn(
-                    "flex flex-col items-center justify-center gap-1 min-h-[48px] min-w-[44px] px-3 py-2 rounded-lg transition-all",
-                    isActive(href) ? "bg-[var(--highlight)]/20" : ""
+                    "flex flex-col items-center justify-center gap-1 min-h-12 min-w-11 px-3 py-2 rounded-lg transition-colors",
+                    isActive(href) ? "bg-highlight/10 text-highlight" : "text-foreground/70"
                   )}
-                  style={{
-                    color: isActive(href) ? 'var(--highlight)' : undefined
-                  }}
                   aria-label={label}
                 >
                   {icon}
-                  <span
-                    className="text-[10px] font-medium"
-                    style={{ color: isActive(href) ? 'var(--highlight)' : 'rgb(var(--foreground) / 0.5)' }}
-                  >
-                    {label}
-                  </span>
+                  <span className="text-[10px] font-medium">{label}</span>
                 </motion.div>
               </Link>
             </li>
@@ -62,17 +54,12 @@ export default function Navbar({ isMobileBottom }: NavbarProps) {
       <ul className="hidden md:flex flex-col gap-2">
         {navItems.map(({ href, icon, label }) => (
           <li key={href} className="relative group">
-            <Link href={href}>
+            <Link href={href} className="block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight" aria-current={isActive(href) ? "page" : undefined}>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 className={cn(
-                  "transition-all p-2 rounded-lg",
-                  isActive(href) ? "bg-[var(--highlight)]/10" : ""
+                  "transition-colors p-2 rounded-lg",
+                  isActive(href) ? "bg-highlight/10 text-highlight" : "text-foreground/70 hover:text-foreground"
                 )}
-                style={{
-                  color: isActive(href) ? 'var(--highlight)' : undefined
-                }}
                 aria-label={label}
               >
                 {icon}

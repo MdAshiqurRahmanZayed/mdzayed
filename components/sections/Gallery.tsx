@@ -1,5 +1,7 @@
 "use client";
 
+import { container, item } from "@/lib/motion";
+import SectionHeader from "@/components/ui/SectionHeader";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -12,19 +14,6 @@ const photos = [
   "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600",
   "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=600",
 ];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, scale: 0.9 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
-};
 
 export default function Gallery() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -40,11 +29,7 @@ export default function Gallery() {
       className="space-y-6"
     >
       {/* HEADER */}
-      <motion.header variants={item}>
-        <h2 className="text-2xl font-semibold mb-6 relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-12 after:h-1 after:bg-gradient-to-r after:from-highlight after:to-highlight after:rounded-full">
-          Pixels & Passion
-        </h2>
-      </motion.header>
+      <SectionHeader title="Pixels & Passion" />
 
       {/* GALLERY GRID */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -52,14 +37,13 @@ export default function Gallery() {
           <motion.div
             key={idx}
             variants={item}
-            whileHover={{ scale: 1.03 }}
-            className="aspect-square relative overflow-hidden rounded-xl cursor-pointer border border-[var(--border)]"
+                        className="aspect-square relative overflow-hidden rounded-xl cursor-pointer border border-border"
             onClick={() => setSelected(idx)}
           >
             <img
               src={src}
               alt={`Gallery ${idx}`}
-              className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+              className="object-cover w-full h-full"
             />
             <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-colors" />
           </motion.div>
@@ -78,14 +62,14 @@ export default function Gallery() {
           >
             <button
               onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 p-3 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
+              className="absolute top-4 right-4 p-3 text-white/70 hover:text-highlight transition-colors bg-white/10 rounded-full"
             >
               <X size={24} />
             </button>
 
             <button
               onClick={(e) => { e.stopPropagation(); prev(); }}
-              className="absolute left-4 p-4 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
+              className="absolute left-4 p-4 text-white/70 hover:text-highlight transition-colors bg-white/10 rounded-full"
             >
               <ChevronLeft size={28} />
             </button>
@@ -103,7 +87,7 @@ export default function Gallery() {
 
             <button
               onClick={(e) => { e.stopPropagation(); next(); }}
-              className="absolute right-4 p-4 text-white/70 hover:text-[var(--color-highlight)] transition-colors bg-white/10 rounded-full"
+              className="absolute right-4 p-4 text-white/70 hover:text-highlight transition-colors bg-white/10 rounded-full"
             >
               <ChevronRight size={28} />
             </button>

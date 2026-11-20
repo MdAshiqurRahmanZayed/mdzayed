@@ -3,7 +3,7 @@ export const portfolioData = {
     name: "Md. Ashiqur Rahman Zayed",
     role: "Software Engineer",
     company: "Scandinavian Fullstack BD Limited",
-    avatar: "https://raw.githubusercontent.com/MdAshiqurRahmanZayed/mdzayed/refs/heads/main/public/md-zayed-profile.png",
+    avatar: "/md-zayed-profile.png",
     email: "mdarzayed01@gmail.com",
     phone: "+88 01558920843",
     location: "Dhaka, Bangladesh",
@@ -15,12 +15,13 @@ export const portfolioData = {
     ],
   },
   about: {
-    bio: "I am {name}, a {role} at {company} specializing in backend development and LLM-based solutions. With a strong foundation in building scalable, production-ready systems, I bring a practical approach to integrating AI and large language models into real-world business workflows. Driven by a passion for intelligent software, I thrive at the intersection of backend engineering and applied AI — crafting solutions that are not only technically sound but also impactful at scale.",
+    headline: "I build scalable backend systems and LLM-powered workflows.",
+    bio: "Django and Odoo work across ERP, SaaS and investment platforms, from APIs and authentication to background jobs and real-time features.",
     stats: [
-      { label: "YEARS OF EXPERIENCE", value: "2+", href: "/career" },
-      { label: "PROJECTS COMPLETED", value: "10+", href: "/creative-showcase" },
-      { label: "INDUSTRIAL PROJECTS CONTRIBUTIONS", value: "4", href: "/career" },
-      { label: "CERTIFICATIONS", value: "7+", href: "/achievement" },
+      { label: "Years of experience", value: "2+", href: "/career" },
+      { label: "Projects completed", value: "10+", href: "/creative-showcase" },
+      { label: "Industry projects", value: "4", href: "/career" },
+      { label: "Certifications", value: "7+", href: "/achievement" },
     ],
   },
   experience: [

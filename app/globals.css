@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold-600: #ceb36b;
-  --color-gold-700: #b99e5a;
-  --color-sky-blue-crayola: #76D7EA;
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar: var(--sidebar-bg);
@@ -15,26 +11,26 @@
 
 @layer base {
   :root {
-    --background: #F5F2ED;
-    --foreground: #3D3633;
-    --sidebar-bg: #EDE8E0;
-    --border: #D8D2C8;
-    --card-bg: #F8F5F0;
-    --highlight: #C4704B;
+    --background: #F6F4F0;
+    --foreground: #2B2724;
+    --sidebar-bg: #F1EEE8;
+    --card-bg: #FBFAF7;
+    --border: rgb(43 39 36 / 0.12);
+    --highlight: #A94E32;
     --map-filter: none;
-    --scrollbar-bg: #EDE8E0;
-    --scrollbar-thumb: #C9C2B8;
+    --scrollbar-bg: #F6F4F0;
+    --scrollbar-thumb: #CFC9BF;
   }
   .dark {
-    --background: #1F1B18;
-    --foreground: #F5F2ED;
-    --sidebar-bg: #2A2622;
-    --border: #3D3833;
-    --card-bg: #2D2824;
+    --background: #23211F;
+    --foreground: #ECE9E4;
+    --sidebar-bg: #2A2826;
+    --card-bg: #2E2C29;
+    --border: rgb(236 233 228 / 0.12);
     --highlight: #F08060;
     --map-filter: invert(0.9) hue-rotate(180deg) brightness(0.95) saturate(0.9);
-    --scrollbar-bg: #1F1B18;
-    --scrollbar-thumb: #3D3833;
+    --scrollbar-bg: #23211F;
+    --scrollbar-thumb: #4A4743;
   }
 }
 
@@ -60,12 +56,30 @@ body {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sky-blue-crayola);
+  background: var(--highlight);
 }
 
 ::selection {
-  background: var(--highlight);
-  color: #000;
+  background: color-mix(in srgb, var(--highlight) 30%, transparent);
+  color: inherit;
+}
+
+/* Theme switch: the circular reveal is driven from ThemeToggle. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -79,15 +93,3 @@ body {
 .pb-safe {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
 }
-
-.text-highlight { color: var(--highlight) !important; }
-.bg-highlight { background-color: var(--highlight) !important; }
-.bg-highlight-10 { background-color: var(--highlight); opacity: 0.1; }
-.border-highlight { border-color: var(--highlight) !important; }
-.hover\:text-highlight:hover { color: var(--highlight) !important; }
-.hover\:border-highlight:hover { border-color: var(--highlight) !important; }
-.from-highlight { --tw-gradient-from: var(--highlight) var(--tw-gradient-from-position) !important; }
-.to-highlight { --tw-gradient-to: var(--highlight) var(--tw-gradient-to-position) !important; }
-.after\:from-highlight::after { --tw-gradient-from: var(--highlight) var(--tw-gradient-from-position) !important; }
-.after\:to-highlight::after { --tw-gradient-to: var(--highlight) var(--tw-gradient-to-position) !important; }
-.before\:bg-highlight::before { background-color: var(--highlight) !important; }

@@ -1,37 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, MapPin, Smartphone, Linkedin, Github, Twitter, Instagram, Facebook, Moon, Sun, FileText } from "lucide-react";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { Mail, MapPin, Smartphone, Linkedin, Github, Twitter, Instagram, Facebook, FileText, type LucideIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { portfolioData } from "@/data/portfolio";
 import { motion } from "framer-motion";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 export default function Sidebar() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
   const { profile } = portfolioData;
   const pathname = usePathname();
   const isRoot = pathname === "/";
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <aside className="bg-sidebar border border-border rounded-[20px] sticky top-10 flex flex-col items-center p-6 transition-all duration-300">
+    <aside className="bg-sidebar border border-border rounded-2xl flex flex-col items-center p-6">
       <div className="flex flex-col items-center w-full relative">
-        {mounted && (
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="absolute left-0 top-0 p-2 rounded-tl-2xl rounded-br-2xl bg-card text-[#C4704B] dark:text-[#F08060] border border-border hover:bg-border transition-colors z-20"
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </motion.button>
-        )}
+        <ThemeToggle className="absolute left-0 top-0 z-20" />
 
         <motion.div
           initial={isRoot ? { scale: 0.9, opacity: 0 } : false}
@@ -49,7 +33,7 @@ export default function Sidebar() {
         </motion.div>
 
         <div className="text-center mb-2">
-          <h1 className="text-xl font-bold">{profile.name}</h1>
+          <p className="text-xl font-medium">{profile.name}</p>
           <p className="text-sm px-4 py-1 rounded-xl bg-card border border-border font-medium mt-2 inline-block">
             {profile.role}
           </p>
@@ -64,13 +48,11 @@ export default function Sidebar() {
             href={profile.locationLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:text-[#C4704B] dark:hover:text-[#F08060] transition-colors"
+            className="flex items-center gap-3 transition-colors hover:text-highlight"
           >
-<div className="p-2.5 rounded-xl bg-card border border-border text-[#C4704B] dark:text-[#F08060]">
-              <MapPin size={16} />
-            </div>
+<MapPin size={16} className="shrink-0 text-foreground/70" />
             <div className="flex-1 overflow-hidden">
-              <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wider">Location</p>
+              <p className="text-foreground/70 text-xs">Location</p>
               <p className="text-sm truncate">{profile.location}</p>
             </div>
           </a>
@@ -80,7 +62,7 @@ export default function Sidebar() {
 
         <div className="flex justify-center gap-3 pt-4">
           {profile.socials.map((social, idx) => {
-            const iconMap: Record<string, any> = {
+            const iconMap: Record<string, LucideIcon> = {
               LinkedIn: Linkedin,
               GitHub: Github,
               Facebook: Facebook,
@@ -96,41 +78,35 @@ export default function Sidebar() {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl transition-all text-sm font-medium text-[#C4704B] bg-[#C4704B]/10 hover:bg-[#C4704B] hover:text-white dark:text-[#F08060] dark:bg-[#F08060]/10 dark:hover:bg-[#F08060]"
+          className="flex items-center justify-center gap-2 w-full mt-4 p-2 rounded-xl transition-colors text-sm font-medium text-highlight bg-highlight/10 hover:bg-highlight hover:text-background"
         >
           <FileText size={16} />
-          Download Resume
+          Resume
         </a>
       </div>
     </aside>
   );
 }
 
-function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, value: string }) {
+function ContactItem({ icon: Icon, label, value }: { icon: LucideIcon, label: string, value: string }) {
   return (
-    <motion.div
-      whileHover={{ x: 5 }}
-      className="flex items-center gap-3"
-    >
-      <div className="p-2.5 rounded-xl bg-card border border-border text-[#C4704B] dark:text-[#F08060]">
-        <Icon size={16} />
-      </div>
+    <div className="flex items-center gap-3">
+      <Icon size={16} className="shrink-0 text-foreground/70" />
       <div className="flex-1 overflow-hidden">
-        <p className="text-foreground/60 text-xs font-semibold uppercase tracking-wider">{label}</p>
+        <p className="text-foreground/70 text-xs">{label}</p>
         <p className="text-sm truncate">{value}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-function SocialIcon({ href, icon: Icon }: { href: string, icon: any }) {
+function SocialIcon({ href, icon: Icon }: { href: string, icon: LucideIcon }) {
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.2, y: -3 }}
-      className="p-2 rounded-lg bg-card border border-border text-foreground/70 hover:text-[#C4704B] dark:hover:text-[#F08060] hover:border-[#C4704B] dark:hover:border-[#F08060] transition-colors"
+      className="rounded-lg p-2 text-foreground/70 transition-colors hover:text-highlight"
     >
       <Icon size={16} />
     </motion.a>
