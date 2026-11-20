@@ -27,7 +27,7 @@ export default function Sidebar() {
             whileTap={{ scale: 0.95 }}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
-            className="absolute left-0 top-0 rounded-lg p-2 text-foreground/50 transition-colors hover:text-foreground z-20"
+            className="absolute left-0 top-0 rounded-lg p-2 text-foreground/70 transition-colors hover:text-foreground z-20"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
@@ -66,9 +66,9 @@ export default function Sidebar() {
             rel="noopener noreferrer"
             className="flex items-center gap-3 transition-colors hover:text-highlight"
           >
-<MapPin size={16} className="shrink-0 text-foreground/50" />
+<MapPin size={16} className="shrink-0 text-foreground/70" />
             <div className="flex-1 overflow-hidden">
-              <p className="text-foreground/60 text-xs">Location</p>
+              <p className="text-foreground/70 text-xs">Location</p>
               <p className="text-sm truncate">{profile.location}</p>
             </div>
           </a>
@@ -107,9 +107,9 @@ export default function Sidebar() {
 function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, value: string }) {
   return (
     <div className="flex items-center gap-3">
-      <Icon size={16} className="shrink-0 text-foreground/50" />
+      <Icon size={16} className="shrink-0 text-foreground/70" />
       <div className="flex-1 overflow-hidden">
-        <p className="text-foreground/60 text-xs">{label}</p>
+        <p className="text-foreground/70 text-xs">{label}</p>
         <p className="text-sm truncate">{value}</p>
       </div>
     </div>
@@ -122,7 +122,7 @@ function SocialIcon({ href, icon: Icon }: { href: string, icon: any }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="rounded-lg p-2 text-foreground/50 transition-colors hover:text-highlight"
+      className="rounded-lg p-2 text-foreground/70 transition-colors hover:text-highlight"
     >
       <Icon size={16} />
     </motion.a>

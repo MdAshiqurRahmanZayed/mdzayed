@@ -28,7 +28,7 @@ export default function Achievements() {
             {portfolioData.achievements.map((achievement, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-card border border-border">
                 <h4 className="font-medium text-sm text-highlight">{achievement.title}</h4>
-                <p className="text-sm text-foreground/60 mt-1">{achievement.description}</p>
+                <p className="text-sm text-foreground/70 mt-1">{achievement.description}</p>
               </div>
             ))}
           </div>

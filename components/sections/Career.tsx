@@ -36,7 +36,7 @@ export default function Resume() {
               <h4 className="font-medium text-base">{exp.company}</h4>
               <p className="text-highlight text-sm mb-1">{exp.period}</p>
               <p className="text-sm font-medium mb-2">{exp.role}</p>
-              <div className="text-foreground/60 text-sm space-y-1">
+              <div className="text-foreground/70 text-sm space-y-1">
                 {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((point, i) => (
                   <p key={i} className="pl-4 relative before:content-['•'] before:absolute before:left-0">{point}</p>
                 ))}
@@ -64,7 +64,7 @@ export default function Resume() {
             >
               <h4 className="font-medium text-base">{edu.institution}</h4>
               <p className="text-sm font-medium mb-2">{edu.degree}</p>
-              <p className="text-foreground/60 text-sm">{edu.description}</p>
+              <p className="text-foreground/70 text-sm">{edu.description}</p>
             </motion.div>
           ))}
         </div>

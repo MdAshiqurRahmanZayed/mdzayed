@@ -67,18 +67,18 @@ export default function Contact() {
         <h3 className="text-lg font-medium mb-4">Contact Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
-            <Phone size={18} className="shrink-0 text-foreground/50" />
+            <Phone size={18} className="shrink-0 text-foreground/70" />
             <div>
-              <p className="text-xs text-foreground/50 mb-0.5">Mobile</p>
+              <p className="text-xs text-foreground/70 mb-0.5">Mobile</p>
               <a href={`tel:${portfolioData.profile.phone}`} className="text-sm font-medium hover:text-highlight transition-colors">
                 {portfolioData.profile.phone}
               </a>
             </div>
           </div>
           <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
-            <Mail size={18} className="shrink-0 text-foreground/50" />
+            <Mail size={18} className="shrink-0 text-foreground/70" />
             <div>
-              <p className="text-xs text-foreground/50 mb-0.5">Email</p>
+              <p className="text-xs text-foreground/70 mb-0.5">Email</p>
               <a href={`mailto:${portfolioData.profile.email}`} className="text-sm font-medium hover:text-highlight transition-colors">
                 {portfolioData.profile.email}
               </a>
