@@ -24,10 +24,10 @@ export default function Sidebar() {
       <div className="flex flex-col items-center w-full relative">
         {mounted && (
           <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="absolute left-0 top-0 p-2 rounded-tl-2xl rounded-br-2xl bg-card text-highlight border border-border hover:bg-border transition-colors z-20"
+            aria-label="Toggle theme"
+            className="absolute left-0 top-0 rounded-lg p-2 text-foreground/50 transition-colors hover:text-foreground z-20"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </motion.button>
@@ -64,11 +64,9 @@ export default function Sidebar() {
             href={profile.locationLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 hover:text-highlight transition-colors"
+            className="flex items-center gap-3 transition-colors hover:text-highlight"
           >
-<div className="p-2.5 rounded-xl bg-card border border-border text-highlight">
-              <MapPin size={16} />
-            </div>
+<MapPin size={16} className="shrink-0 text-foreground/50" />
             <div className="flex-1 overflow-hidden">
               <p className="text-foreground/60 text-xs">Location</p>
               <p className="text-sm truncate">{profile.location}</p>
@@ -108,18 +106,13 @@ export default function Sidebar() {
 
 function ContactItem({ icon: Icon, label, value }: { icon: any, label: string, value: string }) {
   return (
-    <motion.div
-      whileHover={{ x: 5 }}
-      className="flex items-center gap-3"
-    >
-      <div className="p-2.5 rounded-xl bg-card border border-border text-highlight">
-        <Icon size={16} />
-      </div>
+    <div className="flex items-center gap-3">
+      <Icon size={16} className="shrink-0 text-foreground/50" />
       <div className="flex-1 overflow-hidden">
         <p className="text-foreground/60 text-xs">{label}</p>
         <p className="text-sm truncate">{value}</p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -129,8 +122,7 @@ function SocialIcon({ href, icon: Icon }: { href: string, icon: any }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.2, y: -3 }}
-      className="p-2 rounded-lg bg-card border border-border text-foreground/70 hover:text-highlight hover:border-highlight transition-colors"
+      className="rounded-lg p-2 text-foreground/50 transition-colors hover:text-highlight"
     >
       <Icon size={16} />
     </motion.a>

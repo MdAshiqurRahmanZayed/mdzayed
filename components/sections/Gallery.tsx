@@ -37,14 +37,13 @@ export default function Gallery() {
           <motion.div
             key={idx}
             variants={item}
-            whileHover={{ scale: 1.03 }}
-            className="aspect-square relative overflow-hidden rounded-xl cursor-pointer border border-border"
+                        className="aspect-square relative overflow-hidden rounded-xl cursor-pointer border border-border"
             onClick={() => setSelected(idx)}
           >
             <img
               src={src}
               alt={`Gallery ${idx}`}
-              className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+              className="object-cover w-full h-full"
             />
             <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-colors" />
           </motion.div>

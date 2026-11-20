@@ -32,15 +32,14 @@ export default function About() {
       <motion.section variants={item}>
         <h3 className="text-lg font-medium mb-4 inline-flex items-center gap-2">
           <Star size={20} className="text-highlight" />
-          Highlights & Successes
+          Highlights
         </h3>
         <div className="flex flex-wrap gap-4 md:gap-6">
           {portfolioData.about.stats.map((stat) => (
             <Link key={stat.label} href={stat.href}>
               <motion.div
                 variants={item}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center text-center min-w-[120px] h-full p-4 md:p-6 rounded-xl bg-card border border-border hover:border-highlight transition-colors cursor-pointer"
+                                className="flex flex-col items-center text-center min-w-[120px] h-full p-4 md:p-6 rounded-xl bg-card border border-border hover:border-highlight transition-colors"
               >
                 <span className="text-2xl md:text-3xl font-medium tabular-nums text-highlight mb-2">
                   {stat.value}
@@ -61,15 +60,14 @@ export default function About() {
             <Briefcase size={20} className="text-highlight" />
             Industrial Works
           </h3>
-          <p className="text-sm text-foreground/50 mt-1">A glimpse into my professional work.</p>
+          <p className="text-sm text-foreground/50 mt-1">Selected professional work</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {portfolioData.industrialProjects.map((work) => (
             <motion.div
               key={work.title}
               variants={item}
-              whileHover={{ y: -4 }}
-              className="rounded-xl border border-border bg-card p-4 shadow-lg"
+                            className="rounded-xl border border-border bg-card p-4"
             >
               <h4 className="font-medium text-base">{work.title}</h4>
               <p className="text-sm text-foreground/60 mt-1">{work.description}</p>
@@ -92,7 +90,7 @@ export default function About() {
             <Award size={20} className="text-highlight" />
             Projects
           </h3>
-          <p className="text-sm text-foreground/50 mt-1">A glimpse into my personal projects.</p>
+          <p className="text-sm text-foreground/50 mt-1">Selected personal projects</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           {portfolioData.projects.slice(0, 2).map((project, idx) => (
@@ -102,14 +100,13 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
               variants={item}
-              whileHover={{ y: -4 }}
-              className="group rounded-xl overflow-hidden border border-border bg-card shadow-lg"
+                            className="group rounded-xl overflow-hidden border border-border bg-card"
             >
               <div className="relative h-36 md:h-44 w-full overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <div className="p-4">

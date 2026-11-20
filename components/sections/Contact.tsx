@@ -27,7 +27,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (data.success) {
-        showToast("success", "Message sent successfully!");
+        showToast("success", "Message sent");
         form.reset();
       } else {
         showToast("error", "Failed to send message. Please try again.");
@@ -47,7 +47,7 @@ export default function Contact() {
       className="space-y-8"
     >
       {/* HEADER */}
-      <SectionHeader title="Let's Connect" />
+      <SectionHeader title="Contact" />
 
       {/* MAP */}
       <motion.div variants={item} className="rounded-xl overflow-hidden border border-border h-[250px] md:h-[300px]">
@@ -67,9 +67,7 @@ export default function Contact() {
         <h3 className="text-lg font-medium mb-4">Contact Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
-            <div className="p-2.5 rounded-xl bg-highlight/10 text-highlight">
-              <Phone size={18} />
-            </div>
+            <Phone size={18} className="shrink-0 text-foreground/50" />
             <div>
               <p className="text-xs text-foreground/50 mb-0.5">Mobile</p>
               <a href={`tel:${portfolioData.profile.phone}`} className="text-sm font-medium hover:text-highlight transition-colors">
@@ -78,9 +76,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border">
-            <div className="p-2.5 rounded-xl bg-highlight/10 text-highlight">
-              <Mail size={18} />
-            </div>
+            <Mail size={18} className="shrink-0 text-foreground/50" />
             <div>
               <p className="text-xs text-foreground/50 mb-0.5">Email</p>
               <a href={`mailto:${portfolioData.profile.email}`} className="text-sm font-medium hover:text-highlight transition-colors">
@@ -93,27 +89,27 @@ export default function Contact() {
 
       {/* CONTACT FORM */}
       <motion.section variants={item}>
-        <h3 className="text-lg font-medium mb-5">Contact Form</h3>
+        <h3 className="text-lg font-medium mb-5">Send a message</h3>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="text"
               name="name"
-              placeholder="Full Name"
+              placeholder="Name"
               className="w-full bg-foreground/5 border border-border rounded-xl px-4 py-3 text-base md:text-sm focus:border-highlight outline-none transition-colors placeholder:text-foreground/40"
               required
             />
             <input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email"
               className="w-full bg-foreground/5 border border-border rounded-xl px-4 py-3 text-base md:text-sm focus:border-highlight outline-none transition-colors placeholder:text-foreground/40"
               required
             />
           </div>
           <textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="Message"
             rows={5}
             className="w-full bg-foreground/5 border border-border rounded-xl px-4 py-3 text-base md:text-sm focus:border-highlight outline-none transition-colors resize-none placeholder:text-foreground/40"
             required
@@ -122,14 +118,13 @@ export default function Contact() {
           <input type="hidden" name="subject" value={`New Contact from ${portfolioData.profile.name}'s Portfolio`} />
           <div className="flex justify-end">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.97 }}
               type="submit"
               disabled={isSubmitting}
-              className="flex items-center gap-2 bg-highlight text-background px-6 py-3 rounded-xl font-medium text-sm shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 bg-highlight text-background px-6 py-3 rounded-xl font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
-                <>Sending...</>
+                <>Sending</>
               ) : (
                 <>
                   <Send size={18} />

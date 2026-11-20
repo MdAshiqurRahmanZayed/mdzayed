@@ -25,14 +25,13 @@ export default function Portfolio() {
             target="_blank"
             rel="noopener noreferrer"
             variants={item}
-            whileHover={{ y: -4 }}
-            className="group rounded-xl overflow-hidden border border-border bg-card shadow-lg"
+                        className="group rounded-xl overflow-hidden border border-border bg-card"
           >
             <div className="relative h-44 md:h-52 w-full overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                className="object-cover w-full h-full"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-white text-sm font-medium px-4 py-2 bg-highlight rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
