@@ -88,9 +88,10 @@ export default function Sidebar() {
   );
 }
 
+// data-nosnippet keeps contact details visible on the page but out of Google's result snippets.
 function ContactItem({ icon: Icon, label, value }: { icon: LucideIcon, label: string, value: string }) {
   return (
-    <div className="flex items-center gap-3">
+    <div data-nosnippet className="flex items-center gap-3">
       <Icon size={16} className="shrink-0 text-foreground/70" />
       <div className="flex-1 overflow-hidden">
         <p className="text-foreground/70 text-xs">{label}</p>
