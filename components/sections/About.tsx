@@ -142,7 +142,7 @@ export default function About() {
       </motion.section>
 
       {/* QUICK LINKS (mobile only; desktop has the sidebar) */}
-      <motion.section variants={item} className="md:hidden">
+      <motion.section variants={item} data-nosnippet className="md:hidden">
         <h2 className="mb-3 text-2xl font-medium tracking-tight">Get in touch</h2>
         <ul className="divide-y divide-border border-y border-border">
           {[
